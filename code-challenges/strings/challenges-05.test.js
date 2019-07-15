@@ -32,7 +32,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (str) => {
   for (let i = 0; i <= str.length; i++) {
-    return str.split("");
+    return str.split('');
   }
 };
 
