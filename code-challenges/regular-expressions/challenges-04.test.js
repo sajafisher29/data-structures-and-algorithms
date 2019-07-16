@@ -39,11 +39,13 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  let cityNames = /'^[A-J]+?[\s-]+.$'/g;
-  return arr.match(cityNames);
+  const aJCities = [];
+  let cityNames = /^\b[A-J]\w*/g;
+  arr.forEach(city => {
+    if (city.match(cityNames)) {aJCities.push(city);}
+  })
+  return aJCities;
 };
-
-//Need to account for two word names, still in progress
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -58,7 +60,8 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  const october = /^([Oo]ct)(ober)?$/gmi
+  return input.test(october)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,7 +75,10 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // Solution code here...
+  let regex = /(\w+|[[:punct:]])( )/g;
+  const arr = [];
+  if (str.match(regex)) {arr.push(str.match(regex))}
+  else {[]}
 };
 
 /* ------------------------------------------------------------------------------------------------
