@@ -16,7 +16,7 @@ For example, if the input is 'Welcome', the output will be:
 const howMuchPencil = (str) => {
   let result = [];
   for (let i = 0; i <= str.length; i++) {
-    let chop = str.slice([i],str.length);
+    let chop = str.slice([i], str.length);
     result.push(chop);
   }
   return result;
@@ -32,7 +32,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (str) => {
   for (let i = 0; i <= str.length; i++) {
-    return str.split("");
+    return str.split('');
   }
 };
 
@@ -80,7 +80,9 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  gruffaloCrumble.ingredients.forEach( )
+
+  }
   return result;
 };
 
