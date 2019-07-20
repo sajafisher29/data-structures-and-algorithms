@@ -80,9 +80,10 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  gruffaloCrumble.ingredients.forEach( )
-
-  }
+  recipe.ingredients.forEach(ingredient => {
+    const index = ingredient.indexOf(' ', 3) + 1;
+    result.push(ingredient.slice(index, ingredient.length));
+  })
   return result;
 };
 
