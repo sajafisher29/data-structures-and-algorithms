@@ -118,7 +118,7 @@ const stepActions = (recipe) => {
   let result = [];
   recipe.steps.forEach(action => {
     const actions = action.split(' ');
-    result.push((actions[0]));
+    result.push(actions[0]);
   })
   return result;
 };
@@ -137,7 +137,11 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  arr.slice(0).forEach( num => {
+    if (num % 2 === 0) {
+      arr.splice(arr.indexOf(num), 1);
+    }
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
