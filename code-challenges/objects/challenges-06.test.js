@@ -90,7 +90,12 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  for (let i of arr) {
+    if (Object.values(i)[0] === character) {
+      if (Object.values(i)[2].length) {return true;}
+      else {return false;}
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,7 +107,12 @@ The input and output of this function are the same as the input and output from 
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  for (let i of arr) {
+    if (Object.entries(i)[0][1] === character) {
+      if (Object.entries(i)[2][1].length) {return true;}
+      else {return false;}
+    }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,7 +122,13 @@ Write a function named totalCharacters that takes in an array and returns the nu
 ------------------------------------------------------------------------------------------------ */
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let total = 0;
+  for (let i of arr) {
+    total++;
+    if (i.spouse) {total ++;}
+    if (i.children.length) {total += i.children.length}
+  }
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -127,7 +143,16 @@ For example: [{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, ..
 
 const houseSize = (arr) => {
   const sizes = [];
-  // Solution code here...
+  //for each object 
+    //create a new object 
+      //with the original objects house name and the total number of members
+  let total;
+  for (let i of arr) { 
+    total = 1;
+    if (i.spouse) {total++;}
+    if (i.children.length) {total += i.children.length;}
+    sizes.push({house: i.house, members: total});
+  }
   return sizes;
 };
 
@@ -151,7 +176,13 @@ const deceasedSpouses = ['Catelyn', 'Lysa', 'Robert', 'Khal Drogo', 'Alerie'];
 
 const houseSurvivors = (arr) => {
   const survivors = [];
-  // Solution code here...
+  let total;
+  for (let i of arr) {
+    total = 1;
+    if (!deceasedSpouses.includes(i.spouse) && i.spouse) {total++;}
+    if (i.children.length) {total += i.children.length;}
+    survivors.push({house: i.house, members: total});
+  }
   return survivors;
 };
 
