@@ -9,12 +9,7 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  let arrLength = 0
-  arr.reduce(function(accumulator, idx) {
-    accumulator + idx;
-    arrLength++;
-  }, 0)
-  return arrLength;
+  return arr.reduce((accumulator, idx) => ++accumulator, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -162,7 +157,9 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  arr.reduce((acc, value) => {
+
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
