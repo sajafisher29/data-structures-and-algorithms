@@ -248,7 +248,18 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  const filtered = arr.filter(object => {
+    let regex = /\w*[a]\w*/gmi
+    return regex.test(object.name)
+  })
+
+  console.log(filtered);
+
+  const reduceToChildren = filtered.reduce((accumulator, character) => {
+    if (character.children) {return accumulator + character.children.name}
+    else return accumulator;
+  }, 0)
+  console.log(reduceToChildren);
 };
 
 /* ------------------------------------------------------------------------------------------------
