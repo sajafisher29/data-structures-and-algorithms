@@ -10,7 +10,7 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   let arrLength = 0
-  arr.reduce(function(accumulator,  idx) {
+  arr.reduce(function(accumulator, idx) {
     accumulator + idx;
     arrLength++;
   }, 0)
@@ -147,7 +147,10 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, value) => {
+    if (value.children) {return acc + value.children.length;}
+    else return acc;
+  }, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
