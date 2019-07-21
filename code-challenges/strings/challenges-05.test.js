@@ -83,6 +83,7 @@ const listFoods = (recipe) => {
   recipe.ingredients.forEach(ingredient => {
     const index = ingredient.indexOf(' ', 3) + 1;
     result.push(ingredient.slice(index, ingredient.length));
+
   })
   return result;
 };
