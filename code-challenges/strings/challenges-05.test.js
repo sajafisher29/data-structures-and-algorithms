@@ -192,7 +192,8 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+  let regex = /[aeiou]*/gmi
+  return str.replace(regex, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
