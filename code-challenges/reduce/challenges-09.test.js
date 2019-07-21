@@ -91,7 +91,10 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  console.log(str);
+  let array = str.split('');
+  console.log(array);
+  return array.reduce( (string, item) => item + string, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
