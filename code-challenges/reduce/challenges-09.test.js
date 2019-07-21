@@ -9,12 +9,7 @@ Note: You may not use the array's built-in length property.
 ------------------------------------------------------------------------------------------------ */
 
 const countNumberOfElements = (arr) => {
-  let arrLength = 0
-  arr.reduce(function(accumulator,  idx) {
-    accumulator + idx;
-    arrLength++;
-  }, 0)
-  return arrLength;
+  return arr.reduce((accumulator) => ++accumulator, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -91,7 +86,10 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 ------------------------------------------------------------------------------------------------ */
 
 const reversedString = (str) => {
-  // Solution code here...
+  console.log(str);
+  let array = str.split('');
+  console.log(array);
+  return array.reduce( (string, item) => item + string, '');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -144,7 +142,10 @@ const characters = [
 ];
 
 const countNumberOfChildren = (arr) => {
-  // Solution code here...
+  return arr.reduce((acc, value) => {
+    if (value.children) {return acc + value.children.length;}
+    else return acc;
+  }, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -156,7 +157,12 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 ------------------------------------------------------------------------------------------------ */
 
 const calculateAverage = (arr) => {
-  // Solution code here...
+  const object = arr.reduce((accumulator, value) => {
+    accumulator.count += 1;
+    accumulator.sum += value;
+    return accumulator;
+  }, { count: 0, sum: 0 });
+  return object.sum/object.count;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -177,7 +183,10 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (arr) => {
-  // Solution code here...
+  return arr.reduce((accumulator, idx) => {
+    if (isPrime(idx)) {return ++accumulator}
+    else return accumulator;
+  }, 0)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -220,7 +229,12 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, arr) => {
-  // Solution code here...
+  return arr.reduce((accumulator, object) => {
+    if (object.stat.name === statName) {
+      accumulator = object;
+      return accumulator;
+    } else return accumulator;
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -234,7 +248,18 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  // Solution code here...
+  const filtered = arr.filter(object => {
+    let regex = /\w*[a]\w*/gmi
+    return regex.test(object.name)
+  })
+
+  console.log(filtered);
+
+  const reduceToChildren = filtered.reduce((accumulator, character) => {
+    if (character.children) {return accumulator + character.children.name}
+    else return accumulator;
+  }, 0)
+  console.log(reduceToChildren);
 };
 
 /* ------------------------------------------------------------------------------------------------
