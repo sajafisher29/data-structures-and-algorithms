@@ -49,7 +49,13 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  //first remove NaN or not / by 5
+  //second raise 2 to the power of the resulting numbers
+  return input.map(array => {
+    return array.filter(number => {
+      return (typeof number === 'number') && (number % 5 === 0);
+    }).map(number => Math.pow(2, number));
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
