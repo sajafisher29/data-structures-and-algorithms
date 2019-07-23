@@ -56,7 +56,8 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  const regex = /^(\))?\d{3}(\))?( )?(-)?\d{3}(-)?\d{4}$/;
+  if (regex.test(phoneNumber)) {return true}
 };
 
 /* ------------------------------------------------------------------------------------------------
