@@ -42,7 +42,11 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  let noCalls = [];
+  arr.forEach (function(string) {
+    noCalls.push(string.replace(/\D/g,''))
+  })
+  return noCalls;
 };
 
 /* ------------------------------------------------------------------------------------------------
