@@ -59,21 +59,13 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   let odd = '';
-  for (let i = 0; i < str.length; i++)
-  if (i % 2 !== 0) {
-    odd.push(str.charAt[i]).join('')
+  for (let i = 0; i < str.length-1; i++) {
+    if (i % 2 !== 0) {odd.concat(str.charAt[(i)]}
   }
   return odd;
-  let split = str.split('').slice(1).map(splitString)
 };
 
-// let odd = '';
-//   for (let i = 0; i < str.length; i++)
-//     if (i % 2 !== 0) {
-//       odd.push(str.charAt[i]).join('')
-//     }
-//   return odd;
-
+// let split = str.split('').slice(1).map(splitString)
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
