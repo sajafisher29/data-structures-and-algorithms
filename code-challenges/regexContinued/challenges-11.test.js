@@ -70,7 +70,10 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 ------------------------------------------------------------------------------------------------ */
 
 const findTagNames = elements => {
-  // Solution code here...
+  const regex = /<[a-z0-9/]*>/gmi
+   elements.forEach((string) {
+    string.match(regex) substring(1, length-1)
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
