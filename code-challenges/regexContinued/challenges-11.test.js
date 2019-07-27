@@ -56,7 +56,7 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  const regex = /^(\))?\d{3}(\))?( )?(-)?\d{3}(-)?\d{4}$/;
+  const regex = /^(\(\d{3}\)|\d{3})(-| )?\d{3}(-| )?\d{4}$/gmi
   if (regex.test(phoneNumber)) {return true}
 };
 
