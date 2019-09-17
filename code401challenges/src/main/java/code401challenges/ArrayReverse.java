@@ -10,10 +10,11 @@ public class ArrayReverse {
 
   public static int[] reverseArray(int[] arr) {
 
-    int[] reversedArray = new int[arr.length]
+    int[] reversedArray = new int[arr.length];
+    
+    int count = 0;
 
     for(int i = arr.length-1; i >= 0; i--) {
-      int count = 0;
       reversedArray[count] = arr[i];
       count++;
     }
