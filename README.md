@@ -14,7 +14,7 @@ After lecture, get together with your partner and read through the daily set of 
 # 401 Code Challenges
 ## Table of Contents
 1. [Reverse an Array] (#reverseArray)
-2. 
+2. [Shift an Array] (#shiftArray)
 3. 
 4. 
 
@@ -32,3 +32,20 @@ Being new to Java we focused on modifying the array based on the contents' index
 
 ## Solution
 ![alt text](/code401challenges/assets/ArrayReverse.jpg)
+
+<a name = "shiftArray"></a>
+# Shift an Array
+Insert and shift an array in middle at index.
+
+## Challenge
+Feature Task: Write a function called insertShiftArray which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
+
+Stretch Goal: Write a second function that removes an element from the middle index and shifts other elements in the array to fill the new gap.
+
+## Approach & Efficiency
+Being new to Java we focused on modifying the array based on the contents' index. Today was the first day of writing tests and targeting edge cases.
+
+I need to add the test and code for rounding up for odd numbered array lengths and work on the stretch goal.
+
+## Solution
+![alt text](/code401challenges/assets/array-shift.jpg)
