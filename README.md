@@ -15,8 +15,11 @@ After lecture, get together with your partner and read through the daily set of 
 ## Table of Contents
 1. [Reverse an Array] (#reverseArray)
 2. [Shift an Array] (#shiftArray)
-3. 
+3. [Array Binary Search] (#arrayBinarySearch)
 4. 
+5.
+6.
+7.
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -49,3 +52,21 @@ I need to add the test and code for rounding up for odd numbered array lengths a
 
 ## Solution
 ![alt text](/code401challenges/assets/array-shift.jpg)
+
+<a name = "arrayBinarySearch"></a>
+# Array Binary Search
+Binary search of a sorted 1D array.
+
+## Challenge
+Feature Task: Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the search key, or -1 if the element does not exist.
+
+Stretch Goal: Once you’ve achieved a working solution, benchmark with varying array sizes (100, 10000, 100000 elements).
+
+## Approach & Efficiency
+I focused on building the tests first (five in total) before moving to the code. Dan and I planned a while loop with nested if statements.
+
+Time: O(lg(n))
+Space: O(1) -> We have not covered this yet and I am not confident in this assessment yet.
+
+## Solution
+![alt text](/code401challenges/assets/array-binary-search.jpg)
