@@ -117,4 +117,3 @@ public class LinkedListTest {
         assertEquals("LinkedList: 8 1 73 49 -4", many.toString());
     }
 }
-
