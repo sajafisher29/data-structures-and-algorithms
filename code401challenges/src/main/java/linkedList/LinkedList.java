@@ -6,68 +6,54 @@ package linkedList;
 //https://www.geeksforgeeks.org/linked-list-in-java/
 //https://www.geeksforgeeks.org/implementing-a-linked-list-in-java-using-class/
 
-public class LinkedList {
+import java.util.StringJoiner;
+
+public class LinkedList<T> { //T for type, use a single character for the variable
 
     //Within LinkedList class include head property. Instantiation should create empty Linked List.
 
-    Node head; //This is the head of the list
-
-    //Create Node class with properties for value stored, and a pointer to the next Node.
-    //Node constructor
-    static class Node{
-        int value; //The value held by the node
-        Node next; //This will hold where the node points
-
-        Node(int val) {value = val; next = null;}
-    }
+    public Node<T> head = null; //This is the head of the list
 
     //Define method called insert, takes any value as an argument, adds a new node with that value to the head of the list with an O(1) Time performance.
-    public static LinkedList insert(LinkedList list, int value) {
-        Node currentNode = list.head;
-
-        //Creates new node with input value
-        Node newNode = new Node(value);
-        newNode.next = null;
-
-        //If the list is empty make the new node the head
-        if (list.head == null) {
-            list.head = newNode;
-        } else { //Insert new node, assign it as head, and assign the old head as its next
-            newNode.next = list.head;
-            list.head = newNode;
-            currentNode = newNode;
-        }
+    //Refactored to Michelle's recommendation (see past commit version)
+    public void insert(T value) {
+        this.head = new Node<T>(value, this.head);
     }
 
     //Define method called includes, takes any value as an argument, returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
-    static boolean includes(int desiredValue) {
-        Node currentNode = list.head;
+    public boolean includes(T desiredValue) {
+        Node<T> currentNode = this.head;
 
         while (currentNode != null) {
-            if (currentNode.value == desiredValue) {
+            if (currentNode.value.equals(desiredValue)) {
                 return true;
             }
             currentNode = currentNode.next;
         }
+        return false;
     }
 
     //Define method called toString, takes in no arguments, returns a string representing all the values in the Linked List.
     public String toString() {
-        Node currentNode = list.head;
+        Node<T> currentNode = this.head;
 
-        StringBuilder listValues = new StringBuilder(String.format("LinkedList: "));
+        StringJoiner listValues = new StringJoiner(" ");
+        listValues.add("LinkedList:");
 
         //Traverse through the LinkedList
         while (currentNode != null) {
             //Print out current node value
-            listValues.append(String.format(currentNode.value + ", "));
+            listValues.add("" + currentNode.value);
             //Move to next node
             currentNode = currentNode.next;
         }
+        return String.valueOf(listValues);
     }
 
-//    getHead
-
+    //Helper function getHead
+    //getHead
+    //Helper function getHeadValue
+    //getHeadValue
 }
 
 //No exception or stack trace be shown to end user. Catch and handle any exceptions and return a printed value or operation which cleanly represents the state and either stops execution cleanly, or provides the user with clear direction and output.
