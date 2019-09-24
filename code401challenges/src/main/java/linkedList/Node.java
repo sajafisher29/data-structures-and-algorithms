@@ -8,4 +8,8 @@ class Node<T> {
 
      Node(T value) {this(value, null);}
      Node(T value, Node next) {this.value = value; this.next = next;}
+
+    public Node() {
+
     }
+}
