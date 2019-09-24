@@ -116,4 +116,132 @@ public class LinkedListTest {
 
         assertEquals("LinkedList: 8 1 73 49 -4", many.toString());
     }
+
+    //Utilize Single-responsibility principle: any methods you write should be clean, reusable, abstract component parts
+    //Can successfully add a node to the end of the linked list when it already has nodes
+    @Test public void testAppendWhenMultipleNodesExist() {
+        LinkedList many = new LinkedList();
+
+        many.insert(-4);
+        many.insert(49);
+        many.insert(73);
+        many.insert(1);
+        many.append(8);
+
+        Node currentNode = many.head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+
+        assertEquals(8, currentNode.value);
+    }
+
+    //Can successfully add a node to the end of the linked list when it has one node
+    @Test public void testAppendWhenOneNodeExists() {
+        LinkedList one = new LinkedList();
+
+        one.insert(-4);
+        one.append(73);
+
+        Node currentNode = one.head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+
+        assertEquals(73, currentNode.value);
+    }
+
+    //Can successfully add a node to the end when the list is empty
+    @Test public void testAppendWhenEmpty() {
+        LinkedList empty = new LinkedList();
+
+        empty.append(73);
+
+        Node currentNode = empty.head;
+
+        assertEquals(73, currentNode.value);
+    }
+
+    //Can successfully insert multiple nodes to the end of a linked list
+    @Test public void testInsertAtEnd() {
+        LinkedList many = new LinkedList();
+        Node currentNode = many.head;
+
+        many.insert(-4);
+        many.insert(49);
+        many.insert(73);
+        many.insert(1);
+        many.insertBefore(currentNode.next.value = null, 8);
+        many.insertBefore(currentNode.next.value = null, 92);
+
+        assertEquals("Node(8) should be second to last in the list.",
+                8,
+                currentNode.next.next.next.next.value);
+        assertEquals("Node(92) should be last in the list.",
+                92,
+                currentNode.next.next.next.next.next.value);
+    }
+
+    //Can successfully insert a node before node(value) in the middle of a linked list when there are multiple nodes
+    @Test public void testInsertInMiddle() {
+        LinkedList many = new LinkedList();
+
+        many.insert(-4);
+        many.insert(49);
+        many.insert(73);
+        many.insert(1);
+        many.insertBefore(8, 73);
+
+        Node currentNode = many.head;
+        assertEquals("Node(8) should be inserted before Node(73) which would put it as the third item in the list.",
+                8,
+                currentNode.next.next.value);
+    }
+    //Can successfully insert a node before the first node of a linked list of multiple nodes
+    @Test public void testInsertAtBeginning() {
+        LinkedList many = new LinkedList();
+
+        many.insert(-4);
+        many.insert(49);
+        many.insert(73);
+        many.insert(1);
+        many.insertBefore(8, many.head);
+
+        Node currentNode = many.head;
+        assertEquals("First thing in the list should now be 8",
+                8,
+                currentNode.value);
+    }
+
+    //Can successfully insert after a node in the middle of linked list with multiple nodes
+    @Test public void testInsertAfterInMiddle() {
+        LinkedList many = new LinkedList();
+
+        many.insert(-4);
+        many.insert(49);
+        many.insert(73);
+        many.insert(1);
+        many.insertBefore(8, 49);
+
+        Node currentNode = many.head;
+        assertEquals("Node(8) should be third in the list.",
+                8,
+                currentNode.next.next.value);
+    }
+
+    //Can successfully insert a node after the last node of the linked list
+    @Test public void testInsertAfterLastNode() {
+        LinkedList many = new LinkedList();
+        Node currentNode = many.head;
+
+        many.insert(-4);
+        many.insert(49);
+        many.insert(73);
+        many.insert(1);
+        many.insertAfter(currentNode.next = null, 49);
+
+        assertEquals("Node(49) should be after the forth value.",
+                49,
+                currentNode.next.next.next.next.value);
+    }
 }
