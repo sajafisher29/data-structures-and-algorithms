@@ -50,12 +50,82 @@ public class LinkedList<T> { //T for type, use a single character for the variab
         return String.valueOf(listValues);
     }
 
-    //Helper function getHead
-    //getHead
-    //Helper function getHeadValue
-    //getHeadValue
+    // Write the following methods for the Linked List class:
+    // .append(value) which adds a new node with the given value to the end of the list
+    public void append(T value) {
+        Node<T> currentNode = this.head;
+
+        //If there are no nodes in the list
+        if (currentNode == null) {
+            Node newNode = new Node(value);
+            currentNode = newNode;
+        }
+
+        //Traverse to the end of the list and then append
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+            if (currentNode.next == null) {
+                Node newNode = new Node(value);
+                currentNode.next = newNode;
+            }
+        }
+    }
+
+    // .insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
+    // The boolean will let us know if we found the value in the list or not
+    public boolean insertBefore(T value, T newValue) {
+        Node currentNode = this.head;
+
+        //If the value is found in the first node, make the new node the head and point it at the previous head
+        if (currentNode == null) {
+            return false;
+        } else if (currentNode.value == value) {
+            Node newNode = new Node(newValue, head);
+            head = newNode;
+            return true;
+        }
+
+        //Traverse the list to look for the node with the desired value
+        while (currentNode.next.value != value && currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+
+        //node.next = null means we've searched the entire list and did not find the desired value
+        if (currentNode.next == null) {
+            return false;
+        } else {
+            Node newNode = new Node(newValue, currentNode.next);
+            currentNode.next = newNode;
+            return true;
+        }
+    }
+    // .insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
+    // The boolean will let us know if we found the value in the list or not
+    public boolean insertAfter(T value, T newValue) {
+        Node currentNode = this.head;
+
+        //If the value is found in the first node, make the new node the head and point it at the previous head
+        if (currentNode == null) {
+            return false;
+        }
+
+        //Traverse the list to look for the node with the desired value
+        while (currentNode.value != value && currentNode != null) {
+            currentNode = currentNode.next;
+        }
+
+        //node.next = null means we've searched the entire list and did not find the desired value
+        if (currentNode.next == null) {
+            return false;
+        } else {
+            Node newNode = new Node(newValue, currentNode.next);
+            currentNode.next = newNode;
+            return true;
+        }
+    }
 }
 
 //No exception or stack trace be shown to end user. Catch and handle any exceptions and return a printed value or operation which cleanly represents the state and either stops execution cleanly, or provides the user with clear direction and output.
 
-//Stretch Goal: Create a new branch called doubly-linked-list, and, using the resources available to you online, implement a doubly linked list (completely separate from your singly linked list).
+//Stretch Goal: Create a new branch called doubly-linked-list, using the resources online, implement a doubly linked list (completely separate from your singly linked list).
+//Stretch Goal: Write an additional method to delete a node with the given value from the linked list.
