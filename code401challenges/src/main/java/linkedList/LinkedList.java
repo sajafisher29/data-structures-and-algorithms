@@ -6,26 +6,43 @@ package linkedList;
 //https://www.geeksforgeeks.org/linked-list-in-java/
 //https://www.geeksforgeeks.org/implementing-a-linked-list-in-java-using-class/
 
+//Thank you to James for helping me refactor my code when I got stuck!
+
 import java.util.StringJoiner;
 
-public class LinkedList<T> { //T for type, use a single character for the variable
+public class LinkedList { //T for type, use a single character for the variable
 
     //Within LinkedList class include head property. Instantiation should create empty Linked List.
 
-    public Node<T> head = null; //This is the head of the list
+    Node head; //This is the head of the list
+
+    class Node {
+        int value;
+        Node next;
+
+        //Node constructor
+        Node(int value) {
+            this(value, null);
+        }
+
+        Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
+        }
+    }
 
     //Define method called insert, takes any value as an argument, adds a new node with that value to the head of the list with an O(1) Time performance.
     //Refactored to Michelle's recommendation (see past commit version)
-    public void insert(T value) {
-        this.head = new Node<T>(value, this.head);
+    public void insert(int value) {
+        this.head = new Node(value, this.head);
     }
 
     //Define method called includes, takes any value as an argument, returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
-    public boolean includes(T desiredValue) {
-        Node<T> currentNode = this.head;
+    public boolean includes(int desiredValue) {
+        Node currentNode = this.head;
 
         while (currentNode != null) {
-            if (currentNode.value.equals(desiredValue)) {
+            if (currentNode.value == desiredValue) {
                 return true;
             }
             currentNode = currentNode.next;
@@ -35,7 +52,7 @@ public class LinkedList<T> { //T for type, use a single character for the variab
 
     //Define method called toString, takes in no arguments, returns a string representing all the values in the Linked List.
     public String toString() {
-        Node<T> currentNode = this.head;
+        Node currentNode = this.head;
 
         StringJoiner listValues = new StringJoiner(" ");
         listValues.add("LinkedList:");
@@ -47,81 +64,135 @@ public class LinkedList<T> { //T for type, use a single character for the variab
             //Move to next node
             currentNode = currentNode.next;
         }
-        return String.valueOf(listValues);
+        return listValues.toString();
+    }
+
+    //Check for a value in the list
+    public boolean contains(int key) {
+        Node currentNode = this.head;
+
+        while (currentNode != null) {
+            if (currentNode.value == key) {
+                return true;
+            }
+            currentNode = currentNode.next;
+        }
+        return false;
     }
 
     // Write the following methods for the Linked List class:
     // .append(value) which adds a new node with the given value to the end of the list
-    public void append(T value) {
-        Node<T> currentNode = this.head;
+    public void append(int value) {
+        Node newNode = new Node(value);
 
         //If there are no nodes in the list
-        if (currentNode == null) {
-            Node newNode = new Node(value);
-            currentNode = newNode;
-        }
+        if (this.head == null) {
+            this.head = newNode;
+        } else {
+            Node currentNode = this.head;
 
-        //Traverse to the end of the list and then append
-        while (currentNode.next != null) {
-            currentNode = currentNode.next;
-            if (currentNode.next == null) {
-                Node newNode = new Node(value);
-                currentNode.next = newNode;
+            //Traverse to the end of the list and then append
+            while (currentNode.next != null) {
+                currentNode = currentNode.next;
             }
+            currentNode.next = new Node(value);
         }
+    }
+
+    //Adds a node at the beginning of the LinkedList
+    public void insertHead(int value){
+        this.head = new Node(value, this.head);
     }
 
     // .insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
     // The boolean will let us know if we found the value in the list or not
-    public boolean insertBefore(T value, T newValue) {
-        Node currentNode = this.head;
+    public boolean insertBefore(int key, int newValue) {
+        boolean success = false;
+        Node newNode = new Node(newValue);
 
-        //If the value is found in the first node, make the new node the head and point it at the previous head
-        if (currentNode == null) {
-            return false;
-        } else if (currentNode.value == value) {
-            Node newNode = new Node(newValue, head);
-            head = newNode;
-            return true;
-        }
-
-        //Traverse the list to look for the node with the desired value
-        while (currentNode.next.value != value && currentNode.next != null) {
-            currentNode = currentNode.next;
-        }
-
-        //node.next = null means we've searched the entire list and did not find the desired value
-        if (currentNode.next == null) {
-            return false;
+        //Is the list long enough to run
+        if (head == null || head.next == null) {
+            System.out.println("List is too short.");
+        } else if (head.value == key){
+            insertHead(newValue);
         } else {
-            Node newNode = new Node(newValue, currentNode.next);
-            currentNode.next = newNode;
-            return true;
+            Node previousNode = head;
+            Node currentNode = head.next;
+
+            //If the loop finds the end or the key
+            while (currentNode != null && currentNode.value != key) {
+                previousNode = previousNode.next;
+                currentNode = currentNode.next;
+            }
+
+            //If we get to the end of the list and don't find the key
+            if (currentNode == null) {
+                System.out.println(String.format("Did not find the value %d", key));
+            } else {
+                //Add the new node
+                newNode.next = currentNode;
+                previousNode.next = newNode;
+                success = true;
+            }
         }
+        return success;
     }
+
     // .insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
     // The boolean will let us know if we found the value in the list or not
-    public boolean insertAfter(T value, T newValue) {
-        Node currentNode = this.head;
+    public boolean insertAfter(int key, int newValue) {
+        boolean success = false;
+        Node newNode = new Node(newValue);
 
-        //If the value is found in the first node, make the new node the head and point it at the previous head
-        if (currentNode == null) {
-            return false;
+        //Is the list long enough to run
+        if (head == null || head.next == null) {
+            System.out.println("List is too short.");
+        } else {
+            Node previousNode = head;
+            Node currentNode = head.next;
+
+            //If the loop finds the end or the key
+            while (currentNode != null && currentNode.value != key) {
+                previousNode = previousNode.next;
+                currentNode = currentNode.next;
+            }
+
+            //If we get to the end of the list and don't find the key
+            if (currentNode == null) {
+                System.out.println(String.format("Did not find the value %d", key));
+            } else {
+                //Add the new node
+                currentNode.next = newNode;
+                newNode.next = null;
+                success = true;
+            }
         }
+        return success;
+    }
 
-        //Traverse the list to look for the node with the desired value
-        while (currentNode.value != value && currentNode != null) {
+    public int runningBackwards(int k) {
+        Node currentNode = this.head;
+        int listLength = 0;
+
+        while (currentNode.next != null) {
+            listLength++;
             currentNode = currentNode.next;
         }
 
-        //node.next = null means we've searched the entire list and did not find the desired value
-        if (currentNode.next == null) {
-            return false;
-        } else {
-            Node newNode = new Node(newValue, currentNode.next);
-            currentNode.next = newNode;
-            return true;
+        int stepsToTake = listLength - k;
+
+        if (stepsToTake < 0 || stepsToTake > listLength) {
+            throw new IllegalArgumentException("Input value k must be less than the length of the LinkedList.");
         }
+
+        currentNode = this.head;
+        int counter = 0;
+
+        while (currentNode.next != null && counter != stepsToTake) {
+            counter++;
+            currentNode = currentNode.next;
+        }
+        return (int) currentNode.value;
     }
 }
 
