@@ -16,9 +16,9 @@ After lecture, get together with your partner and read through the daily set of 
 1. [Reverse an Array] (#reverseArray)
 2. [Shift an Array] (#shiftArray)
 3. [Array Binary Search] (#arrayBinarySearch)
-4. 
-5.
-6.
+4. [Linked List Insertions] (#llinsert)
+5. [k-th Linked List] (#11kth)
+6. [Zippering Linked Lists] (#llzipper)
 7.
 
 <a name = "reverseArray"></a>
@@ -70,3 +70,61 @@ Space: O(1) -> We have not covered this yet and I am not confident in this asses
 
 ## Solution
 ![alt text](/code401challenges/assets/array-binary-search.jpg)
+
+
+<!-- [Linked List Insertions] (#llinsert) -->
+<a name = "llinsert"></a>
+# Linked List Insertions
+Linked list insertions.
+
+## Challenge
+Feature Task: Write the following methods for the Linked List class: .append(value) which adds a new node with the given value to the end of the list; .insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node; .insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node.
+
+Stretch Goal: Write an additional method to delete a node with the given value from the linked list.
+
+## Approach & Efficiency
+.....
+
+Time: ....
+Space: .....
+
+## Solution
+![alt text](/code401challenges/assets/.......jpg)
+
+<!-- [k-th Linked List] (#11kth) -->
+<a name = "llkth"></a>
+# k-th Linked List
+Finding the k-th value from the end of a linked list.
+
+## Challenge
+Feature Task: Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+Stretch Goal: Implement a method that finds the node at the middle of the Linked List.
+
+## Approach & Efficiency
+......
+
+Time: .....
+Space: ......
+
+## Solution
+![alt text](/code401challenges/assets/......jpg)
+
+<!-- [Zippering Linked Lists] (#llzipper) -->
+<a name = "llzipper"></a>
+# Zippering Linked Lists
+Merge two unsorted linked lists in an alternating pattern.
+
+## Challenge
+Feature Task: Write a function called mergeLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+Stretch Goal: Implement another function that merges two sorted linked lists into a single sorted linked list.
+
+## Approach & Efficiency
+.....
+
+Time: ....
+Space: ....
+
+## Solution
+![alt text](/code401challenges/assets/......jpg)
