@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 public class LinkedListTest {
 
     LinkedList list = new LinkedList();
+    LinkedList secondList = new LinkedList();
     private Object IllegalAccessException;
 
     @Before public void setup(){
@@ -22,6 +23,13 @@ public class LinkedListTest {
         list.insert(1);
         list.insert(93);
         list.insert(723);
+
+        secondList.insert(71);
+        secondList.insert(46);
+        secondList.insert(60);
+        secondList.insert(14);
+        secondList.insert(5);
+        secondList.insert(112);
     }
     //There is an @After for after the tests to break down further, we won't be using it
 
@@ -222,5 +230,12 @@ public class LinkedListTest {
         assertEquals("This should work and then we all get to snuggle kittens.",
                 73,
                 happy.runningBackwards(2));
+    }
+
+    //Test to see if lists have merged
+    @Test public void mergedLists() {
+        assertEquals("The lists have been merged.",
+                secondList.toString(),
+                LinkedList.mergeLists(secondList, list).toString());
     }
 }
