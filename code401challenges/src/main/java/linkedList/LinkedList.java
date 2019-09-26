@@ -194,6 +194,29 @@ public class LinkedList { //T for type, use a single character for the variable
         }
         return (int) currentNode.value;
     }
+
+    //Write function mergeLists which takes two linked lists as arguments.
+    //Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
+    //Try to keep additional space down to O(1).
+
+    public static LinkedList mergeLists(LinkedList a, LinkedList b) {
+        Node bCurrent = b.head, aCurrent = a.head;
+        Node bNext, aNext;
+
+        //While there are positions left in b
+        while(aCurrent != null && bCurrent != null) {
+            bNext = bCurrent.next;
+            aNext = aCurrent.next;
+
+            aCurrent.next = bNext;
+            bCurrent.next = aCurrent;
+
+            bCurrent = bNext;
+            aCurrent = aNext;
+        }
+        a.head = aCurrent;
+        return b;
+    }
 }
 
 //No exception or stack trace be shown to end user. Catch and handle any exceptions and return a printed value or operation which cleanly represents the state and either stops execution cleanly, or provides the user with clear direction and output.
