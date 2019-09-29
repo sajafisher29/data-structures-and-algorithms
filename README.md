@@ -110,7 +110,6 @@ Space: ......
 ## Solution
 ![alt text](/code401challenges/assets/......jpg)
 
-<!-- [Zippering Linked Lists] (#llzipper) -->
 <a name = "llzipper"></a>
 # Zippering Linked Lists
 Merge two unsorted linked lists in an alternating pattern.
@@ -123,8 +122,10 @@ Stretch Goal: Implement another function that merges two sorted linked lists int
 ## Approach & Efficiency
 .....
 
-Time: ....
-Space: ....
+Time: O(n)
+Space: O(n)
 
 ## Solution
-![alt text](/code401challenges/assets/......jpg)
+![alt text](/code401challenges/assets/LinkedListMerge1jpg)
+![alt text](/code401challenges/assets/LinkedListMerge2jpg)
+
