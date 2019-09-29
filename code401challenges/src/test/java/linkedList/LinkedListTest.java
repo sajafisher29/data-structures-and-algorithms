@@ -1,7 +1,10 @@
 package linkedList;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.*;
 
@@ -12,9 +15,10 @@ import static org.junit.Assert.*;
 
 public class LinkedListTest {
 
-    LinkedList list = new LinkedList();
-    LinkedList secondList = new LinkedList();
+    private LinkedList list = new LinkedList();
+    private LinkedList secondList = new LinkedList();
     private Object IllegalAccessException;
+    @Rule public ExpectedException exceptionRule = ExpectedException.none();
 
     @Before public void setup(){
         //@Before <-- annotations give extra info (metadata) to things like JUnit, can annotate classes, methods, variables
@@ -173,39 +177,13 @@ public class LinkedListTest {
     }
 
     //Where k is greater than the length of the linked list
-    @Test public void testKGreaterThanLength() {
-        assertEquals("Input k is greater than the length of the LinkedList.",
-                IllegalAccessException,
-                list.runningBackwards(7));
-    }
-
-    //Where k and the length of the list are the same
-    @Test public void testKEqualToLength() {
-        LinkedList equal = new LinkedList();
-        equal.insert(-4);
-        equal.insert(49);
-        equal.insert(73);
-        equal.insert(1);
-        equal.insert(27);
-        equal.insert(91);
-
-        assertEquals("Input k is equal to the length of the LinkedList.",
-                91,
-                equal.runningBackwards(6));
+    @Test(expected = java.lang.IllegalArgumentException.class) public void testKGreaterThanLength() {
+       list.runningBackwards(7);
     }
 
     //Where k is not a positive integer
-    @Test public void testNegativeK() {
-        LinkedList crazy = new LinkedList();
-        crazy.insert(-4);
-        crazy.insert(49);
-        crazy.insert(73);
-        crazy.insert(1);
-        crazy.insert(27);
-
-        assertEquals("Input k is a negative number and should throw error.",
-                IllegalAccessException.class,
-                crazy.runningBackwards(-2));
+    @Test(expected = java.lang.IllegalArgumentException.class) public void testNegativeK() {
+        list.runningBackwards(-7);
     }
 
     //Where the linked list is of a size 1
@@ -235,7 +213,7 @@ public class LinkedListTest {
     //Test to see if lists have merged
     @Test public void mergedLists() {
         assertEquals("The lists have been merged.",
-                secondList.toString(),
-                LinkedList.mergeLists(secondList, list).toString());
+                "LinkedList: 723 112 93 5 1 14 13 60 29 46 71",
+                LinkedList.mergeLinkedLists(list, secondList).toString());
     }
 }

@@ -14,9 +14,9 @@ public class LinkedList { //T for type, use a single character for the variable
 
     //Within LinkedList class include head property. Instantiation should create empty Linked List.
 
-    Node head; //This is the head of the list
+    public Node head; //This is the head of the list
 
-    class Node {
+    static class Node {
         int value;
         Node next;
 
@@ -182,7 +182,7 @@ public class LinkedList { //T for type, use a single character for the variable
         int stepsToTake = listLength - k;
 
         if (stepsToTake < 0 || stepsToTake > listLength) {
-            throw new IllegalArgumentException("Input value k must be less than the length of the LinkedList.");
+            throw new IllegalArgumentException("Input value k must be less than or equal to the length of the LinkedList.");
         }
 
         currentNode = this.head;
@@ -199,23 +199,30 @@ public class LinkedList { //T for type, use a single character for the variable
     //Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list.
     //Try to keep additional space down to O(1).
 
-    public static LinkedList mergeLists(LinkedList a, LinkedList b) {
-        Node bCurrent = b.head, aCurrent = a.head;
-        Node bNext, aNext;
+    // Merge two linked lists
+    // Received help with logic from Michelle Ferreirae
+    public static LinkedList mergeLinkedLists(LinkedList a, LinkedList b) {
+        if (a.head == null) {
+            return b;
+        }
+
+        Node bCurr = b.head;
+        Node aCurr = a.head;
 
         //While there are positions left in b
-        while(aCurrent != null && bCurrent != null) {
-            bNext = bCurrent.next;
-            aNext = aCurrent.next;
+        while(aCurr != null && bCurr != null) {
+            Node temp1 = aCurr.next;
+            Node temp2 = bCurr.next;
 
-            aCurrent.next = bNext;
-            bCurrent.next = aCurrent;
+            if (aCurr.next != null) {
+                bCurr.next = aCurr.next;
+            }
 
-            bCurrent = bNext;
-            aCurrent = aNext;
+            aCurr.next = bCurr;
+            aCurr = temp1;
+            bCurr = temp2;
         }
-        a.head = aCurrent;
-        return b;
+        return a;
     }
 }
 
