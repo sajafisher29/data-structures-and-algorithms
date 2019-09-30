@@ -25,7 +25,7 @@ public class StackTest {
 
         assertEquals("The stack's first value will be 5.",
                 5,
-                testPush.pop().value);
+                testPush.peek());
     }
 
 //Can successfully push multiple values onto a stack

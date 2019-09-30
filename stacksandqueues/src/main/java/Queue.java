@@ -9,9 +9,7 @@ public class Queue {
     Node rear;
 
 // This object should be aware of a default empty value assigned to front when the queue is created.
-    public Queue() {
-    this.front = null; this.rear = null;
-}
+    public Queue() { this.front = null; this.rear = null; }
 
 // Define a method called enqueue which takes any value as an argument and adds a new node with that value to the back of the queue with an O(1) Time performance.
     public void enqueue(int value) {
@@ -52,18 +50,18 @@ public class Queue {
     }
 
 //Writing a toString method to read the queue
-//    @Override public String toString() {
-//        StringJoiner queueToString = new StringJoiner(" ");
-//        queueToString.add("Queue contains: ");
-//        Node currentNode = this.front;
-//
-//        //Read the queue
-//        while (front != null) {
-//            queueToString.add("" + currentNode);
-//            currentNode = currentNode.next;
-//        }
-//        return queueToString.toString();
-//    }
+    @Override public String toString() {
+        StringJoiner queueToString = new StringJoiner(" ");
+        queueToString.add("Queue contains:");
+        Node currentNode = this.front;
+
+        //Read the queue
+        while (currentNode.next != null) {
+            queueToString.add("" + currentNode.value);
+            currentNode = currentNode.next;
+        }
+        return queueToString.toString();
+    }
 
 //At no time should an exception or stack trace be shown to the end user. Catch and handle any such exceptions and return a printed value or operation which cleanly represents the state and either stops execution cleanly, or provides the user with clear direction and output.
 

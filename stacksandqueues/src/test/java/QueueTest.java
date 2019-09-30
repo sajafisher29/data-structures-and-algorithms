@@ -20,8 +20,7 @@ public class QueueTest {
 //Can successfully enqueue into a queue
 
     @Test public void testEnqueue() {
-
-        assertEquals("The queue should have six nodes.",
+        assertEquals("The first node in the queue is 4.",
                 4,
                         testQueue.peek());
     }
@@ -29,7 +28,9 @@ public class QueueTest {
 //Can successfully enqueue multiple values into a queue
 
     @Test public void testEnqueueMultipleValues() {
-
+        assertEquals("The queue contains 4 7 12 16 21 -3.",
+                "Queue contains: 4 7 12 16 21 -3",
+                testQueue.toString());
     }
 
 //Can successfully dequeue out of a queue the expected value
