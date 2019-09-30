@@ -25,7 +25,7 @@ public class StackTest {
 
         assertEquals("The stack's first value will be 5.",
                 5,
-                testPush);
+                testPush.pop().value);
     }
 
 //Can successfully push multiple values onto a stack
@@ -58,7 +58,4 @@ public class StackTest {
 
     }
 
-    @Test (expected = IllegalArgumentException.class) public void nullNotAllowed() {
-        testStack.push(null);
-    }
 }
