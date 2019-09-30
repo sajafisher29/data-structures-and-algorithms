@@ -14,7 +14,7 @@ public class Stack {
 
 // Define a method called push which takes any value as an argument and adds a new node with that value to the top of the stack with an O(1) Time performance.
     public void push(int newNodeValue) {
-        top = new Node(newNodeValue, top);
+        top = new Node(newNodeValue);
         System.out.println("Inserting " + newNodeValue + " onto stack.");
     }
 
