@@ -44,7 +44,7 @@ public class PseudoQueue {
         if (this.stack2.top != null) {
             // If stack2 is holding the values pop from the stack
             dequeued = this.stack2.pop();
-        } else if (this.stack1.top != null){
+        } else if (this.stack1.top != null) {
             // If there are values in stack1 flip the stacks
             while (this.stack1.top != null) {
                 int temp = 0;
