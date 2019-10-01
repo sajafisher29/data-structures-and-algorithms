@@ -24,17 +24,17 @@ public class Queue {
     }
 
 // Define a method called dequeue that does not take any argument, removes the node from the front of the queue, and returns the node’s value.
-    Node dequeue() {
-        Node dequeued = front;
-        Node temp = front;
+    int dequeue() {
+        int dequeued = 0;
+        Node temp = null;
         peek();
         if (front == null) {
-            System.out.println("The queue is empty.");
+            throw new NoSuchElementException();
         } else {
             front = front.next;
             System.out.println("Returning node from front of the queue with a value of " + front + ".");
             temp.next = null;
-            dequeued = temp;
+            dequeued = temp.value;
         }
         return dequeued;
     }

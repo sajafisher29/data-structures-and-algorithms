@@ -19,7 +19,7 @@ After lecture, get together with your partner and read through the daily set of 
 4. [Linked List Insertions] (#llinsert)
 5. [k-th Linked List] (#11kth)
 6. [Zippering Linked Lists] (#llzipper)
-7.
+7. [PseudoQueue] (#pseudoqueue)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -128,4 +128,26 @@ Space: O(n)
 ## Solution
 ![alt text](/code401challenges/assets/LinkedListMerge1jpg)
 ![alt text](/code401challenges/assets/LinkedListMerge2jpg)
+
+<a name = "pseudoqueue"></a>
+# PseudoQueue
+Implement a Queue using two Stacks.
+
+## Challenge
+Feature Task: Create a brand new PseudoQueue class. Do not use an existing Queue. Instead, this PseudoQueue class will implement our standard queue interface (the two methods listed below), but will internally only utilize 2 Stack objects. Ensure that you create your class with the following methods:
+
+*enqueue(value) which inserts value into the PseudoQueue, using a first-in, first-out approach.
+*dequeue() which extracts a value from the PseudoQueue, using a first-in, first-out approach.
+
+The Stack instances have only push, pop, and peek methods. You should use your own Stack implementation. Instantiate these Stack objects in your PseudoQueue constructor.
+
+## Approach & Efficiency
+Simce Queues and Stacks have move data differently I am utilizing the second Stack as a way to 'flip' the data so that the Stack methods produce the same data flow as a Queue when needed.
+
+Time: O(n) and O(1)
+Space: O(1)
+
+## Solution
+![alt text](/code401challenges/assets/PseudoQueue1jpg)
+![alt text](/code401challenges/assets/PseudoQueue2jpg)
 
