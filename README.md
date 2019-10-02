@@ -127,8 +127,8 @@ Time: O(n)
 Space: O(n)
 
 ## Solution
-![alt text](/code401challenges/assets/LinkedListMerge1jpg)
-![alt text](/code401challenges/assets/LinkedListMerge2jpg)
+![alt text](/code401challenges/assets/LinkedListMerge1.jpg)
+![alt text](/code401challenges/assets/LinkedListMerge2.jpg)
 
 <a name = "pseudoqueue"></a>
 # PseudoQueue
