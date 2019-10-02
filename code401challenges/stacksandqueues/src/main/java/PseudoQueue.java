@@ -3,16 +3,10 @@ import java.util.NoSuchElementException;
 public class PseudoQueue {
 
     // Create a PseudoQueue class
-    private Node front;
-    private Node rear;
     private Stack stack1 = new Stack();
     private Stack stack2 = new Stack();
 
     // This object should be aware of a default empty value assigned to front when the queue is created.
-    public PseudoQueue() {
-        this.front = null;
-        this.rear = null;
-    }
 
     // Method enqueue which takes any value as an argument and adds a new node with that value to the back of the queue with an O(1) Time performance.
     // Enqueue will always add the value to the top of stack1
