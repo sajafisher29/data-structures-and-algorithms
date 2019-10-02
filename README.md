@@ -20,6 +20,7 @@ After lecture, get together with your partner and read through the daily set of 
 5. [k-th Linked List] (#11kth)
 6. [Zippering Linked Lists] (#llzipper)
 7. [PseudoQueue] (#pseudoqueue)
+8. [FIFO] (#FIFO)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -142,12 +143,36 @@ Feature Task: Create a brand new PseudoQueue class. Do not use an existing Queue
 The Stack instances have only push, pop, and peek methods. You should use your own Stack implementation. Instantiate these Stack objects in your PseudoQueue constructor.
 
 ## Approach & Efficiency
-Simce Queues and Stacks have move data differently I am utilizing the second Stack as a way to 'flip' the data so that the Stack methods produce the same data flow as a Queue when needed.
+Since Queues and Stacks have move data differently I am utilizing the second Stack as a way to 'flip' the data so that the Stack methods produce the same data flow as a Queue when needed.
 
 Time: O(n) and O(1)
 Space: O(1)
 
 ## Solution
-![alt text](/code401challenges/assets/PseudoQueue1jpg)
-![alt text](/code401challenges/assets/PseudoQueue2jpg)
+![alt text](/code401challenges/assets/PseudoQueue1.jpg)
+![alt text](/code401challenges/assets/PseudoQueue2.jpg)
 
+<a name = "FIFO"></a>
+# FIFO
+First in, first out AnimalShelter.
+
+## Challenge
+Feature Task: Create a class called AnimalShelter which holds only dogs and cats. The shelter operates using a first-in, first-out approach.
+
+Implement the following methods:
+* enqueue(animal): adds animal to the shelter. animal can be either a dog or a cat object.
+* dequeue(pref): returns either a dog or a cat. If pref is not "dog" or "cat" then return null.
+
+Stretch Goal: If a cat or dog isn’t preferred, return whichever animal has been waiting in the shelter the longest.
+
+## Approach & Efficiency
+Utilizing yesterday's code format of storing data within stacks inside a queue I will build four stacks: an enqueue for each animal and a dequeue for each animal.
+
+Time: O(n) and O(1)
+Space: O(1)
+
+## Solution
+![alt text](/code401challenges/assets/FIFO1.jpg)
+![alt text](/code401challenges/assets/FIFO2.jpg)
+![alt text](/code401challenges/assets/FIFO3.jpg)
+![alt text](/code401challenges/assets/FIFO4.jpg)

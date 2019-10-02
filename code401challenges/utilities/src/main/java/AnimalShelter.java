@@ -11,6 +11,6 @@ public class AnimalShelter {
 
     //AnimalShelter methods
     public void enqueue(animal) {
-        
+
     }
 }
