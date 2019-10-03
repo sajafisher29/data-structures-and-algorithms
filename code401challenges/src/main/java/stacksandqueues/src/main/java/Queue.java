@@ -1,19 +1,20 @@
-import java.util.EmptyStackException;
+package stacksandqueues.src.main.java;
+
 import java.util.NoSuchElementException;
 import java.util.StringJoiner;
 
-public class Queue {
+public class Queue<T> {
 
 // Create a Queue class that has a front property. It creates an empty Queue when instantiated.
-    Node front;
-    Node rear;
+    Node<T> front;
+    Node<T> rear;
 
 // This object should be aware of a default empty value assigned to front when the queue is created.
     public Queue() { this.front = null; this.rear = null; }
 
 // Define a method called enqueue which takes any value as an argument and adds a new node with that value to the back of the queue with an O(1) Time performance.
-    public void enqueue(int value) {
-        Node newNode = new Node(value);
+    public void enqueue(T value) {
+        Node<T> newNode = new Node<>(value);
 
         if (this.rear == null) {
             this.front = this.rear = newNode;
@@ -23,24 +24,27 @@ public class Queue {
         }
     }
 
-// Define a method called dequeue that does not take any argument, removes the node from the front of the queue, and returns the node’s value.
-    int dequeue() {
-        int dequeued = 0;
-        Node temp = null;
-        peek();
-        if (front == null) {
+    // Define a method called dequeue that does not take any argument, removes the node from the front of the queue, and returns the node’s value.
+    // Working on refactoring to fit the T type
+    public T dequeue() {
+        if (isEmpty()) {
             throw new NoSuchElementException();
-        } else {
-            front = front.next;
-            System.out.println("Returning node from front of the queue with a value of " + front + ".");
-            temp.next = null;
-            dequeued = temp.value;
         }
-        return dequeued;
+        T value = (T) this.front.value;
+        this.front = this.front.next;
+
+        if (isEmpty()) {
+            this.rear = null;
+        }
+        return value;
+    }
+
+    private boolean isEmpty() {
+        return this.front == null;
     }
 
 // Define a method called peek that does not take an argument and returns the value of the node located in the front of the queue, without removing it from the queue.
-    public int peek() {
+    public T peek() {
         if (this.front == null) {
             throw new NoSuchElementException();
         } else {
@@ -53,7 +57,7 @@ public class Queue {
     @Override public String toString() {
         StringJoiner queueToString = new StringJoiner(" ");
         queueToString.add("Queue contains:");
-        Node currentNode = this.front;
+        Node<T> currentNode = this.front;
 
         //Read the queue
         while (currentNode.next != null) {
