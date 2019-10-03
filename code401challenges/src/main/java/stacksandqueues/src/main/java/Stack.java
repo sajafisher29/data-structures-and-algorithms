@@ -1,11 +1,13 @@
+package stacksandqueues.src.main.java;
+
 import java.util.EmptyStackException;
 
-public class Stack {
+public class Stack<T> {
 
     // Referenced: https://www.geeksforgeeks.org/stack-class-in-java/
 
 // Create a Stack class that has a top property. It creates an empty Stack when instantiated.
-    Node top;
+    Node<T> top;
 
 // This object should be aware of a default empty value assigned to top when the stack is created.
     public Stack() {
@@ -13,21 +15,21 @@ public class Stack {
     }
 
 // Define a method called push which takes any value as an argument and adds a new node with that value to the top of the stack with an O(1) Time performance.
-    public void push(int value) {
-        Node newNode = new Node(value);
+    public void push(T value) {
+        Node<T> newNode = new Node<>(value);
 
         if (this.top == null) {
             this.top = newNode;
         } else {
-            this.top.next = newNode;
-            this.top = this.top.next;
+            newNode.next = this.top;
+            this.top = newNode;
             System.out.println("Inserting " + newNode + " onto stack.");
         }
     }
 
 // Define a method called pop that does not take any argument, removes the node from the top of the stack, and returns the node’s value.
-    int pop() {
-        Node temp = top;
+    T pop() {
+        Node<T> temp = top;
         peek();
         if (top == null) {
             System.out.println("The stack is empty.");
@@ -40,7 +42,7 @@ public class Stack {
     }
 
 // Define a method called peek that does not take an argument and returns the value of the node located on top of the stack, without removing it from the stack.
-    public int peek() {
+    public T peek() {
         if (this.top == null) {
             throw new EmptyStackException();
         } else {

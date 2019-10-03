@@ -1,3 +1,5 @@
+package stacksandqueues
+
 plugins {
     id 'java'
 }
