@@ -8,17 +8,17 @@ public class MultiBracketValidationTest {
 
     @Test public void testCorrectOutcomeTrue() {
         String good = "(I am a {@ood} string.)";
-        assertTrue( );
+        assertTrue(multiBracketValidation(good));
     }
 
     @Test public void testCorrectOutcomeFalse() {
-        String good = "(I a/m a ba} string.)";
-        assertFalse( );
+        String bad = "(I a/m a ba} string.)";
+        assertFalse(multiBracketValidation(bad));
     }
 
     @Test public void testStringWithoutBrackets() {
-        String good = "I am a @ood string.";
-        assertTrue( );
+        String none = "I am a @ood string.";
+        assertTrue(multiBracketValidation(none));
     }
 
 }
