@@ -1,4 +1,4 @@
-package linkedList;
+package code401challenges.linkedList;
 
 import org.junit.Test;
 
