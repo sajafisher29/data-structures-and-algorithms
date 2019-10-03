@@ -13,20 +13,12 @@ public class PseudoQueue {
 
     public void enqueue(int value) {
 
-
-        if (this.stack2.top != null) {
-            //Stack2.pop() and Stack1.push() until Stack2 is empty
-            while (this.stack2.top != null) {
-                int temp = 0;
-                //Move stack2.top to stack1
-                this.stack2.peek();
-                temp = this.stack2.pop();
-                this.stack1.push(temp);
-            }
-            this.stack1.push(value);
-        } else {
-            // Add the node to the top of stack1
-            this.stack1.push(value);
+        //Stack2.pop() and Stack1.push() until Stack2 is empty
+        while (this.stack2.top != null) {
+            this.stack1.push(this.stack2.pop());
+        }
+        // Add the node to the top of stack1
+        this.stack1.push(value);
         }
     }
 

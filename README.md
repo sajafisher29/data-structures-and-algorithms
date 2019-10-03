@@ -21,6 +21,7 @@ After lecture, get together with your partner and read through the daily set of 
 6. [Zippering Linked Lists] (#llzipper)
 7. [PseudoQueue] (#pseudoqueue)
 8. [FIFO] (#FIFO)
+9. [MultiBracketValidation] (#bracketvalidation)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -176,3 +177,26 @@ Space: O(1)
 ![alt text](/code401challenges/assets/FIFO2.jpg)
 ![alt text](/code401challenges/assets/FIFO3.jpg)
 ![alt text](/code401challenges/assets/FIFO4.jpg)
+
+<a name = "bracketvalidation"></a>
+# MultiBracketValidation
+Multi-bracket validation within a String.
+
+## Challenge
+Your function should take a string as its only argument, and should return a boolean representing whether or not the brackets in the string are balanced. There are 3 types of brackets:
+
+* Round Brackets : ()
+* Square Brackets : []
+* Curly Brackets : {}
+
+
+## Approach & Efficiency
+Building on the stack methods built in previous code challenges I will be iterating through the String, and using regex methods, push all opening brackets into one stack. This will continue until the first closing backet which will be pushed into a second stack. Then the two stack tops will be compared and if they match they will be popped off and the iteration will continue. If they do not match the method will return false and end. If the iteration ends and the stacks are null it will return true.
+
+Time: O(n)
+Space: O(1)
+
+## Solution
+![alt text](/code401challenges/assets/MultiBracketValidation1.jpg)
+![alt text](/code401challenges/assets/MultiBracketValidation2.jpg)
+![alt text](/code401challenges/assets/MultiBracketValidation3.jpg)

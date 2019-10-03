@@ -5,7 +5,7 @@ public class Stack {
     // Referenced: https://www.geeksforgeeks.org/stack-class-in-java/
 
 // Create a Stack class that has a top property. It creates an empty Stack when instantiated.
-    Node top;
+    Node<T> top;
 
 // This object should be aware of a default empty value assigned to top when the stack is created.
     public Stack() {
@@ -13,8 +13,8 @@ public class Stack {
     }
 
 // Define a method called push which takes any value as an argument and adds a new node with that value to the top of the stack with an O(1) Time performance.
-    public void push(int value) {
-        Node newNode = new Node(value);
+    public void push(T value) {
+        Node<T> newNode = new Node(value);
 
         if (this.top == null) {
             this.top = newNode;
