@@ -1,4 +1,4 @@
-package linkedList;
+package code401challenges.linkedList;
 
 class Node<T> {
     //Create Node class with properties for value stored, and a pointer to the next Node.

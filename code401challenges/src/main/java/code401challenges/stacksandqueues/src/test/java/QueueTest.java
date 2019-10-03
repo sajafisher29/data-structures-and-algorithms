@@ -1,8 +1,8 @@
-package stacksandqueues.src.test.java;
+package code401challenges.stacksandqueues.src.test.java;
 
 import org.junit.Before;
 import org.junit.Test;
-import stacksandqueues.src.main.java.Queue;
+import code401challenges.stacksandqueues.src.main.java.Queue;
 
 import static org.junit.Assert.*;
 

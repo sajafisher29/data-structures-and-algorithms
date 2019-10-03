@@ -1,4 +1,4 @@
-package linkedList;
+package code401challenges.linkedList;
 
 //To refresh my memory I did some extra research to look at different ways the code is laid out
 //https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-05/resources/singly_linked_list.html
