@@ -1,18 +1,16 @@
-package code401challenges.stacksandqueues.src.test.java;
+package code401challenges.stacksandqueues;
 
 import org.junit.Before;
 import org.junit.Test;
-import code401challenges.stacksandqueues.src.main.java.Queue;
-
 import static org.junit.Assert.*;
 
 public class QueueTest {
 
 //Write tests to prove the following functionality:
-    Queue testQueue;
+    Queue<Integer> testQueue;
 
     @Before public void setup() {
-        testQueue = new Queue();
+        testQueue = new Queue<>();
         testQueue.enqueue(4);
         testQueue.enqueue(7);
         testQueue.enqueue(12);
@@ -25,8 +23,7 @@ public class QueueTest {
 
     @Test public void testEnqueue() {
         assertEquals("The first node in the queue is 4.",
-                4,
-                        testQueue.peek());
+                4, testQueue.dequeue().intValue());
     }
 
 //Can successfully enqueue multiple values into a queue

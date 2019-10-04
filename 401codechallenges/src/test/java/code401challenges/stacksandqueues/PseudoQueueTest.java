@@ -1,18 +1,16 @@
-package code401challenges.stacksandqueues.src.test.java;
+package code401challenges.stacksandqueues;
 
 import org.junit.Before;
 import org.junit.Test;
-import code401challenges.stacksandqueues.src.main.java.PseudoQueue;
-
 import java.util.NoSuchElementException;
 
-import static org.junit.Assert.*;
+import static junit.framework.TestCase.assertEquals;
 
 public class PseudoQueueTest {
-    PseudoQueue testPseudoQueue;
+    PseudoQueue<Integer> testPseudoQueue;
 
     @Before public void setup() {
-        testPseudoQueue = new PseudoQueue();
+        testPseudoQueue = new PseudoQueue<Integer>();
         testPseudoQueue.enqueue(15);
         testPseudoQueue.enqueue(4);
         testPseudoQueue.enqueue(7);
@@ -21,9 +19,7 @@ public class PseudoQueueTest {
 // Happy Path: Expected outcome
 
     @Test public void testEnqueueHappyPathWhenEmpty() {
-        assertEquals("Enqueue can add to the PseudoQueue.",
-                15,
-                testPseudoQueue.dequeue());
+        assertEquals(15, testPseudoQueue.dequeue().intValue());
     }
 
 //Expected failure

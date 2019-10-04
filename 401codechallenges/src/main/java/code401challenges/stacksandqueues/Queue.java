@@ -1,4 +1,4 @@
-package code401challenges.stacksandqueues.src.main.java;
+package code401challenges.stacksandqueues;
 
 import java.util.NoSuchElementException;
 import java.util.StringJoiner;

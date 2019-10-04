@@ -1,4 +1,4 @@
-package code401challenges.stacksandqueues.src.main.java;
+package code401challenges.stacksandqueues;
 
 import java.util.EmptyStackException;
 
@@ -7,7 +7,7 @@ public class Stack<T> {
     // Referenced: https://www.geeksforgeeks.org/stack-class-in-java/
 
 // Create a Stack class that has a top property. It creates an empty Stack when instantiated.
-    Node<T> top;
+    public Node<T> top;
 
 // This object should be aware of a default empty value assigned to top when the stack is created.
     public Stack() {

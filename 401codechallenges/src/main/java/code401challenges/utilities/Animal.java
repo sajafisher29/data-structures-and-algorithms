@@ -1,3 +1,5 @@
+package code401challenges.utilities;
+
 public class Animal {
 
     public void animal() {

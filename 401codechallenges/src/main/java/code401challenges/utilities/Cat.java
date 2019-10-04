@@ -1,3 +1,5 @@
+package code401challenges.utilities;
+
 public class Cat extends Animal {
 
     String name;

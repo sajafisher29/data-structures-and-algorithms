@@ -1,16 +1,17 @@
-package code401challenges.stacksandqueues.src.test.java;
+package code401challenges.stacksandqueues;
 
 import org.junit.Before;
 import org.junit.Test;
 import java.util.Stack;
-import static org.junit.Assert.*;
+
+import static junit.framework.TestCase.assertEquals;
 
 public class StackTest {
 
 //Write tests to prove the following functionality:
 
     @Before public void setup() {
-        Stack testStack = new Stack();
+        Stack<Integer> testStack = new Stack<Integer>();
         testStack.push(4);
         testStack.push(7);
         testStack.push(12);
@@ -22,12 +23,12 @@ public class StackTest {
 //Can successfully push onto a stack
 
     @Test public void testPushToStack() {
-        Stack testPush = new Stack();
+        Stack<Integer> testPush = new Stack<>();
         testPush.push(5);
 
         assertEquals("The stack's first value will be 5.",
                 5,
-                testPush.peek());
+                testPush.pop().intValue());
     }
 
 //Can successfully push multiple values onto a stack

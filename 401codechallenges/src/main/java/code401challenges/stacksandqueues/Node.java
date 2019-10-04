@@ -1,4 +1,4 @@
-package code401challenges.stacksandqueues.src.main.java;
+package code401challenges.stacksandqueues;
 
 public class Node<T> {
 
