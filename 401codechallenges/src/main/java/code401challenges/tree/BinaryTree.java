@@ -1,6 +1,12 @@
 package code401challenges.tree;
 
+// https://www.baeldung.com/java-binary-tree
+
 public class BinaryTree {
+
+    // Creates the root Node of the tree
+    Node root;
+
 
 // Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
 
