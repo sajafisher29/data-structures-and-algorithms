@@ -13,10 +13,16 @@ public class Node {
     //right child node
     Node rightChild;
 
-    Node(int value) {
+    public Node(int value) {
         this.value = value;
         rightChild = null;
         leftChild = null;
+    }
+
+    public Node(int value, Node rightChild, Node leftChild) {
+        this.value = value;
+        this.rightChild = rightChild;
+        this.leftChild = leftChild;
     }
 
 }
