@@ -22,6 +22,7 @@ After lecture, get together with your partner and read through the daily set of 
 7. [PseudoQueue] (#pseudoqueue)
 8. [FIFO] (#FIFO)
 9. [MultiBracketValidation] (#bracketvalidation)
+10. [Trees] (#trees)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -200,3 +201,19 @@ Space: O(1)
 ![alt text](/code401challenges/assets/MultiBracketValidation1.jpg)
 ![alt text](/code401challenges/assets/MultiBracketValidation2.jpg)
 ![alt text](/code401challenges/assets/MultiBracketValidation3.jpg)
+
+
+<a name = "trees"></a>
+# Trees
+
+## Challenge
+Implementing a Tree.
+
+## Approach & Efficiency
+To be added
+
+Time: 
+Space: 
+
+## Solution
+![alt text](/code401challenges/assets/tobeadded.jpg)
