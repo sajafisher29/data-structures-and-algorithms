@@ -60,7 +60,7 @@ public class Queue<T> {
         Node<T> currentNode = this.front;
 
         //Read the queue
-        while (currentNode.next != null) {
+        while (currentNode != null) {
             queueToString.add("" + currentNode.value);
             currentNode = currentNode.next;
         }

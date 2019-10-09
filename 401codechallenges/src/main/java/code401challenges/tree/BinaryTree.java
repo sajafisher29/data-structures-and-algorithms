@@ -3,13 +3,11 @@ package code401challenges.tree;
 // https://www.baeldung.com/java-binary-tree
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
 public class BinaryTree<T> {
 
     // Creates the root Node of the tree
-    Node root;
+    Node<T> root;
 
     public BinaryTree(T value) {
         this.root = new Node(value);
