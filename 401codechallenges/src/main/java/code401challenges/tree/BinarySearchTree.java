@@ -2,15 +2,23 @@ package code401challenges.tree;
 
 // https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/
 
-public class BinarySearchTree {
+public class BinarySearchTree<T> {
 
 // Define a method named add that accepts a value, and adds a new node with that value in the correct location in the binary search tree.
 
     // Creates the root Node of the tree
     Node root;
 
+    public BinarySearchTree(T value) {
+        this.root = new Node(value);
+    }
+
+    public BinarySearchTree() {
+        this.root = null;
+    }
+
     // Recursion method to insert new nodes to create a sorted tree
-    private Node addRecursively (Node current, int value) {
+    private Node addRecursively (Node current, T value) {
 
         // When current is null, a leaf node has been reached, insert new Node in that position
         if (current == null) {
@@ -30,13 +38,13 @@ public class BinarySearchTree {
     }
 
     // Start recursion from the root node
-    public void add (int value) {
+    public void add (T value) {
         root = addRecursively(root, value);
     }
 
 // Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
 
-    private boolean containsRecursive (Node current, int value) {
+    private boolean containsRecursive (Node current, T value) {
         if (current == null) {
             return false;
         }

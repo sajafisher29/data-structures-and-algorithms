@@ -2,47 +2,98 @@ package code401challenges.tree;
 
 // https://www.baeldung.com/java-binary-tree
 
-public class BinaryTree {
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
+public class BinaryTree<T> {
 
     // Creates the root Node of the tree
     Node root;
 
+    public BinaryTree(T value) {
+        this.root = new Node(value);
+    }
+
+    public BinaryTree() {
+        this.root = null;
+    }
+
 // Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
 
-    //method preOrder returns ordered array
-    public void preOrder() {
-        this.preOrder(this.root);
+    // Method preOrder returns ordered array
+    public ArrayList<T> preOrder() {
+        ArrayList<T> values = new ArrayList<>();
+        return preOrder(this.root, values);
     }
 
-    private void preOrder(Node node) {
-        if (node != null) {
-            preOrder(node.leftChild);
-            preOrder(node.rightChild);
+    // Helper method for preOrder traversal
+    private ArrayList<T> preOrder(Node currentNode, ArrayList<T> values) {
+        if (currentNode == null) {
+            return values;
         }
+        values.add((T)currentNode.value);
+        values = preOrder(currentNode.leftChild, values);
+        values = preOrder(currentNode.rightChild, values);
+        return values;
     }
 
-    //method inOrder returns ordered array
-    public void inOrder() {
-        this.inOrder(this.root);
+    // Method inOrder returns ordered array
+    public ArrayList<T> inOrder() {
+        ArrayList<T> values = new ArrayList<>();
+        return inOrder(this.root, values);
     }
 
-    private void inOrder(Node node) {
-        if (node != null) {
-            inOrder(node.leftChild);
-            inOrder(node.rightChild);
+    // Helper method for inOrder traversal
+    private ArrayList<T> inOrder(Node currentNode, ArrayList<T> values) {
+        if (currentNode == null) {
+            return values;
         }
+        values = inOrder(currentNode.leftChild, values);
+        values.add((T)currentNode.value);
+        values = inOrder(currentNode.rightChild, values);
+        return values;
     }
 
-    //method postOrder returns ordered array
-    public void postOrder() {
-        this.postOrder(this.root);
+    // Method postOrder returns ordered array
+    public ArrayList<T> postOrder() {
+        ArrayList<T> values = new ArrayList<>();
+        return postOrder(this.root, values);
     }
 
-    private void postOrder(Node node) {
-        if (node != null) {
-            postOrder(node.leftChild);
-            postOrder(node.rightChild);
+    // Helper method for post-order traversal
+    private ArrayList<T> postOrder(Node currentNode, ArrayList<T> values) {
+        if (currentNode == null) {
+            return values;
         }
+
+        values = postOrder(currentNode.leftChild, values);
+        values = postOrder(currentNode.rightChild, values);
+        values.add((T)currentNode.value);
+        return values;
+    }
+
+    // Add new value to binary tree and inserting the node in an empty spot
+    public void add(T value) {
+        this.root = add(this.root, value);
+    }
+
+    // Helper method to add new value to binary tree using recursion
+    private Node add(Node currentNode, T value) {
+
+        if (currentNode == null) {
+            currentNode = new Node(value);
+            return currentNode;
+        }
+
+        double randomNum = Math.random();
+
+        if (randomNum >= 0.5) {
+            currentNode.rightChild = add(currentNode.rightChild, value);
+        } else {
+            currentNode.leftChild = add(currentNode.leftChild, value);
+        }
+        return currentNode;
     }
 }
 

@@ -39,6 +39,9 @@ public class BinarySearchTreeTest {
 
 
 //    Can successfully return a collection from an inorder traversal
+    @Test public void testInOrderTraversal() {
+        assertArrayEquals()
+    }
 
 
 //    Can successfully return a collection from a postorder traversal
