@@ -39,7 +39,7 @@ public class Queue<T> {
         return value;
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         return this.front == null;
     }
 

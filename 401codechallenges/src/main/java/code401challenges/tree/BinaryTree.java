@@ -2,7 +2,10 @@ package code401challenges.tree;
 
 // https://www.baeldung.com/java-binary-tree
 
+import code401challenges.stacksandqueues.Queue;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class BinaryTree<T> {
 
@@ -92,6 +95,28 @@ public class BinaryTree<T> {
             currentNode.leftChild = add(currentNode.leftChild, value);
         }
         return currentNode;
+    }
+
+    // Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach; print every visited node’s value.
+    public static void breadthFirstTraversal(BinaryTree tree) {
+        Queue<Node> treeNodeQueue = new Queue<Node>();
+
+        if (root != null) {
+            treeNodeQueue.enqueue(root);
+        } else {
+            System.out.println("Empty tree");
+        }
+
+        while (!treeNodeQueue.isEmpty()) {
+            Node holdForChildren = treeNodeQueue.dequeue();
+            System.out.println(holdForChildren.value);
+            if (holdForChildren.leftChild != null) {
+                treeNodeQueue.enqueue(holdForChildren.leftChild);
+            }
+            if (holdForChildren.rightChild != null) {
+                treeNodeQueue.enqueue(holdForChildren.rightChild);
+            }
+        }
     }
 }
 
