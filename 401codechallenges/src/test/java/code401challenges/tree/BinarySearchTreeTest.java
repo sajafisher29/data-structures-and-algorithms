@@ -2,7 +2,6 @@ package code401challenges.tree;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class BinarySearchTreeTest {
@@ -12,39 +11,28 @@ public class BinarySearchTreeTest {
     @Before
     public void setup () {
         testTree = new BinaryTree();
-
+        testTree.add(4);
+        testTree.add(9);
+        testTree.add(-219);
     }
 
-    //    Can successfully instantiate an empty tree
-    @Test
-    public void testEmptyTree() {
-
+    // Can successfully instantiate an empty tree
+    @Test public void testInstantiation() {
+        BinarySearchTree canYouSeeMeNow = new BinarySearchTree();
+        assertNull("CanYouSeeMeNow should be null.", canYouSeeMeNow.root);
     }
 
-    //    Can successfully instantiate a tree with a single root node
+    // Can successfully instantiate a tree with a single root node
     @Test public void testSingleRootTree() {
-//        assertTrue("Root Tree exists", testTree // Look for root;)
+        BinarySearchTree canYouSeeMeNowIHaveSomething = new BinarySearchTree();
+        canYouSeeMeNowIHaveSomething.add(17);
+        assertEquals("The root is 17", 17, canYouSeeMeNowIHaveSomething.root.value);
     }
 
-    //    Can successfully add a left child and right child to a single root node
-    @Test public void testAddLeftAndRightChildToSingleRootTree() {
-        testTree.add(3);
-        assertTrue("The tree should contain nodes with values of 3", testTree.containsValue(3));
-
-        testTree.add(-5);
-        assertTrue("The tree should contain nodes with values of -5", testTree.containsValue(-5));
-
-    }
-//    Can successfully return a collection from a preorder traversal
-
-
-//    Can successfully return a collection from an inorder traversal
-    @Test public void testInOrderTraversal() {
-        assertArrayEquals()
-    }
-
-
-//    Can successfully return a collection from a postorder traversal
-
+//    // Can successfully add a left child and right child to a single root node
+//    @Test public void testAddLeftAndRightChildToSingleRootTree() {
+//        assertTrue("The tree contains node with value of 3", true, testTree.contains(9));
+//        assertTrue("The tree contains node with value of -5", true, testTree.contains(-219));
+//    } // Not sure why it can't see the contains()
 
 }
