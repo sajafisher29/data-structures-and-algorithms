@@ -23,6 +23,7 @@ After lecture, get together with your partner and read through the daily set of 
 8. [FIFO] (#FIFO)
 9. [MultiBracketValidation] (#bracketvalidation)
 10. [Trees] (#trees)
+11. [Breadth-first Tree Traversal] (#breadth)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -217,3 +218,18 @@ Space:
 
 ## Solution
 ![alt text](/code401challenges/assets/tobeadded.jpg)
+
+<a name = "breadth"></a>
+# Breadth-first Tree Traversal
+
+## Challenge
+Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach; print every visited node’s value.
+
+## Approach & Efficiency
+Using the methods of a queue we will start at the root and for each step remove the node at the front of the queue while adding its children (if it has any) to the back of the queue. This will continue until the queue is empty.
+
+Time: O(n)
+Space: O(1)
+
+## Solution
+![alt text](/code401challenges/assets/Breadth-first.jpg)
