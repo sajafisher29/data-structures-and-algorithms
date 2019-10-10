@@ -24,6 +24,7 @@ After lecture, get together with your partner and read through the daily set of 
 9. [MultiBracketValidation] (#bracketvalidation)
 10. [Trees] (#trees)
 11. [Breadth-first Tree Traversal] (#breadth)
+12. [Max Value in a Binary Tree] (#maxValue)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -233,3 +234,18 @@ Space: O(1)
 
 ## Solution
 ![alt text](/code401challenges/assets/Breadth-first.jpg)
+
+<a name = "maxValue"></a>
+# Max Value in a Binary Tree
+
+## Challenge
+Write an instance method called find-maximum-value. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
+## Approach & Efficiency
+I built off of the breadth first method I wrote for the last challenge and modified it to fit the challenge. They run through the tree's nodes in very similar ways.
+
+Time: O(n)
+Space: O(1)
+
+## Solution
+![alt text](/code401challenges/assets/maxValue.jpg)
