@@ -6,7 +6,7 @@ import java.util.StringJoiner;
 public class Queue<T> {
 
 // Create a Queue class that has a front property. It creates an empty Queue when instantiated.
-    Node<T> front;
+public Node<T> front;
     Node<T> rear;
 
 // This object should be aware of a default empty value assigned to front when the queue is created.

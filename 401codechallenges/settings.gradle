@@ -8,5 +8,4 @@
  */
 
 rootProject.name = 'code401challenges'
-include 'utilities'
 

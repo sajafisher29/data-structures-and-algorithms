@@ -5,7 +5,6 @@ package code401challenges.tree;
 import code401challenges.stacksandqueues.Queue;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class BinaryTree<T> {
 
@@ -13,7 +12,7 @@ public class BinaryTree<T> {
     Node<T> root;
 
     public BinaryTree(T value) {
-        this.root = new Node(value);
+        this.root = new Node<>(value);
     }
 
     public BinaryTree() {
@@ -33,7 +32,7 @@ public class BinaryTree<T> {
         if (currentNode == null) {
             return values;
         }
-        values.add((T)currentNode.value);
+        values.add((T) currentNode.value);
         values = preOrder(currentNode.leftChild, values);
         values = preOrder(currentNode.rightChild, values);
         return values;
@@ -51,7 +50,7 @@ public class BinaryTree<T> {
             return values;
         }
         values = inOrder(currentNode.leftChild, values);
-        values.add((T)currentNode.value);
+        values.add((T) currentNode.value);
         values = inOrder(currentNode.rightChild, values);
         return values;
     }
@@ -70,7 +69,7 @@ public class BinaryTree<T> {
 
         values = postOrder(currentNode.leftChild, values);
         values = postOrder(currentNode.rightChild, values);
-        values.add((T)currentNode.value);
+        values.add((T) currentNode.value);
         return values;
     }
 
@@ -98,7 +97,7 @@ public class BinaryTree<T> {
     }
 
     // Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach; print every visited node’s value.
-    public static void breadthFirstTraversal(BinaryTree tree) {
+    public void breadthFirstTraversal() {
         Queue<Node> treeNodeQueue = new Queue<Node>();
 
         if (root != null) {
@@ -117,6 +116,34 @@ public class BinaryTree<T> {
                 treeNodeQueue.enqueue(holdForChildren.rightChild);
             }
         }
+    }
+
+    // Write an instance method called find-maximum-value. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
+    public int findMaximumValue() {
+        Node<Integer> maxValue = null;
+        if (root == null) {
+            System.out.println("This is an empty tree. There is no maximum value.");
+        } else {
+            Queue<Node> treeNodeQueue = new Queue<>();
+            maxValue = (Node<Integer>) root;
+            treeNodeQueue.enqueue(root);
+            while (treeNodeQueue.front != null) {
+                Node<Integer> temp;
+                temp = treeNodeQueue.dequeue();
+                if (temp.getValue() > maxValue.getValue()) {
+                    maxValue = temp;
+                }
+                if (temp.getLeftChild() != null) {
+                    treeNodeQueue.enqueue(temp.getLeftChild());
+                }
+                if (temp.getRightChild() != null) {
+                    treeNodeQueue.enqueue(temp.getRightChild());
+                }
+            }
+        }
+        assert maxValue != null;
+        return maxValue.getValue();
     }
 }
 

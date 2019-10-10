@@ -39,8 +39,33 @@ public class BinaryTreeTest {
                 testTree.postOrder().toString());
     }
 
-    // Can return the correct print out of values for breadth first traversal
-    @Test public void testBreadthFirstTraversal(BinaryTree testTree) {
-        assertEquals("4 9 -219", new StringBuilder().append("4").append("9").append("-219").toString(), breadthFirstTraversal(testTree));
+//    // Can return the correct print out of values for breadth first traversal
+//    @Test public String testBreadthFirstTraversal(BinaryTree testTree) {
+//        assertEquals("4 9 -219",
+//                ,
+//                testTree.breadthFirstTraversal());
+//    }
+
+    // Does findMaximumValue return the correct value
+    @Test public void testFindMaximumValueCorrectValue() {
+        BinaryTree<Integer> testTreeForMax = new BinaryTree<Integer>();
+        testTreeForMax.add(7);
+        testTreeForMax.add(93);
+        testTreeForMax.add(-193);
+
+        assertEquals("Max value should be 93",
+                93,
+                testTreeForMax.findMaximumValue());
     }
+
+    // Expected failure case for findMaximumValue
+    @Test public void testExpectedFailureForFindMaximumValue() {
+
+    }
+
+    // Edge case of a tree with no nodes for findMaximumValue
+    @Test public void testFindMaximumValueOfATreeWithNoNodes() {
+
+    }
+
 }
