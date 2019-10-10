@@ -60,12 +60,20 @@ public class BinaryTreeTest {
 
     // Expected failure case for findMaximumValue
     @Test public void testExpectedFailureForFindMaximumValue() {
+        BinaryTree<Integer> testTreeForMax = new BinaryTree<Integer>();
+        testTreeForMax.add(7);
+        testTreeForMax.add(93);
+        testTreeForMax.add(-193);
 
+        assertNotEquals("Max value should be 93",
+                4,
+                testTreeForMax.findMaximumValue());
     }
 
     // Edge case of a tree with no nodes for findMaximumValue
-    @Test public void testFindMaximumValueOfATreeWithNoNodes() {
-
+    @Test (expected = NullPointerException.class) public void testFindMaximumValueOfATreeWithNoNodes() {
+        BinaryTree<Integer> testTreeForMax = new BinaryTree<Integer>();
+        testTreeForMax.findMaximumValue();
     }
 
 }
