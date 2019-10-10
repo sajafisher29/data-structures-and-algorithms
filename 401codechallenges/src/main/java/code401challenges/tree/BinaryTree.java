@@ -120,10 +120,10 @@ public class BinaryTree<T> {
 
     // Write an instance method called find-maximum-value. Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
 
-    public int findMaximumValue() {
+    public int findMaximumValue() throws NullPointerException{
         Node<Integer> maxValue = null;
         if (root == null) {
-            System.out.println("This is an empty tree. There is no maximum value.");
+            throw new NullPointerException("This is an empty tree. The root is null. There is no maximum value.");
         } else {
             Queue<Node> treeNodeQueue = new Queue<>();
             maxValue = (Node<Integer>) root;
@@ -142,7 +142,6 @@ public class BinaryTree<T> {
                 }
             }
         }
-        assert maxValue != null;
         return maxValue.getValue();
     }
 }
