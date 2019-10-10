@@ -248,4 +248,4 @@ Time: O(n)
 Space: O(1)
 
 ## Solution
-![alt text](/code401challenges/assets/maxValue.jpg)
+![alt text](/code401challenges/assets/findMaxValue.jpg)
