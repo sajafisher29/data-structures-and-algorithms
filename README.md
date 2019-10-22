@@ -25,6 +25,7 @@ After lecture, get together with your partner and read through the daily set of 
 10. [Trees] (#trees)
 11. [Breadth-first Tree Traversal] (#breadth)
 12. [Max Value in a Binary Tree] (#maxValue)
+13. [Insertion Sort] (#insertionSort)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -249,3 +250,34 @@ Space: O(1)
 
 ## Solution
 ![alt text](/code401challenges/assets/findMaxValue.jpg)
+
+<a name = "insertionSort"></a>
+# Insertion Sort Algorithm
+
+## Challenge
+* Complete a working, tested implementation of Insertion Sort, based on the pseudo code provided below:
+````$xslt
+ InsertionSort(int[] arr)
+  
+    FOR i = 1 to arr.length
+    
+      int j <-- i - 1
+      int temp <-- arr[i]
+      
+      WHILE j >= 0 AND temp < arr[j]
+        arr[j + 1] <-- arr[j]
+        j <-- j - 1
+        
+      arr[j + 1] <-- temp
+````
+* Write unit tests
+* Create a blog post on understanding the Insertion Sort Algorithm suitable for a 301 level student. Alternately, prepare a presentation that presents the algorithm in a novel way.
+
+## Approach & Efficiency
+TBD
+
+Time: O(TBD)
+Space: O(TBD)
+
+## Solution
+![alt text](/code401challenges/assets/TBD.jpg)
