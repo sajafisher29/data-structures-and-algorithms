@@ -1,5 +1,6 @@
-package code401challenges;
+package code401challenges.arrays;
 
+import code401challenges.arrays.ArrayShift;
 import org.junit.Test;
 import java.util.Arrays;
 import static org.junit.Assert.*;

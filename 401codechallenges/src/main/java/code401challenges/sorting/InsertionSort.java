@@ -1,4 +1,4 @@
-package code401challenges;
+package code401challenges.sorting;
 
 public class InsertionSort {
 
