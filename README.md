@@ -40,7 +40,7 @@ Stretch Goal: Implement the same feature with a different methodology.
 Being new to Java we focused on modifying the array based on the contents' index. We did not get to Big O in lecture and I don't know enough to confidently evaluate it. We put a best guess based on our reading in our whiteboarding solution.
 
 ## Solution
-![alt text](/code401challenges/assets/ArrayReverse.jpg)
+![Whiteboard: Reversing an Array](/code401challenges/assets/ArrayReverse.jpg)
 
 <a name = "shiftArray"></a>
 # Shift an Array
@@ -57,7 +57,7 @@ Being new to Java we focused on modifying the array based on the contents' index
 I need to add the test and code for rounding up for odd numbered array lengths and work on the stretch goal.
 
 ## Solution
-![alt text](/code401challenges/assets/array-shift.jpg)
+![Whiteboard: Shifting an Array](/code401challenges/assets/array-shift.jpg)
 
 <a name = "arrayBinarySearch"></a>
 # Array Binary Search
@@ -75,16 +75,18 @@ Time: O(lg(n))
 Space: O(1) -> We have not covered this yet and I am not confident in this assessment yet.
 
 ## Solution
-![alt text](/code401challenges/assets/array-binary-search.jpg)
+![Whiteboard: Array Binary Search](/code401challenges/assets/array-binary-search.jpg)
 
 
-<!-- [Linked List Insertions] (#llinsert) -->
 <a name = "llinsert"></a>
 # Linked List Insertions
-Linked list insertions.
+Inserting values into a Linked List
 
 ## Challenge
-Feature Task: Write the following methods for the Linked List class: .append(value) which adds a new node with the given value to the end of the list; .insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node; .insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node.
+Feature Task: Write the following methods for the Linked List class: 
+* .append(value) which adds a new node with the given value to the end of the list
+* .insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
+* .insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
 
 Stretch Goal: Write an additional method to delete a node with the given value from the linked list.
 
@@ -95,9 +97,8 @@ Time: ....
 Space: .....
 
 ## Solution
-![alt text](/code401challenges/assets/.......jpg)
+<!-- ![alt text](/code401challenges/assets/.......jpg) -->
 
-<!-- [k-th Linked List] (#11kth) -->
 <a name = "llkth"></a>
 # k-th Linked List
 Finding the k-th value from the end of a linked list.
@@ -114,7 +115,7 @@ Time: .....
 Space: ......
 
 ## Solution
-![alt text](/code401challenges/assets/......jpg)
+<!-- ![alt text](/code401challenges/assets/......jpg) -->
 
 <a name = "llzipper"></a>
 # Zippering Linked Lists
@@ -132,8 +133,8 @@ Time: O(n)
 Space: O(n)
 
 ## Solution
-![alt text](/code401challenges/assets/LinkedListMerge1.jpg)
-![alt text](/code401challenges/assets/LinkedListMerge2.jpg)
+![Whiteboard: Zippering Linked Lists](/code401challenges/assets/LinkedListMerge1.jpg)
+![Whiteboard: Zippering Linked Lists](/code401challenges/assets/LinkedListMerge2.jpg)
 
 <a name = "pseudoqueue"></a>
 # PseudoQueue
@@ -154,8 +155,8 @@ Time: O(n) and O(1)
 Space: O(1)
 
 ## Solution
-![alt text](/code401challenges/assets/PseudoQueue1.jpg)
-![alt text](/code401challenges/assets/PseudoQueue2.jpg)
+![Whiteboard: PseudoQueues](/code401challenges/assets/PseudoQueue1.jpg)
+![Whiteboard: PseudoQueues](/code401challenges/assets/PseudoQueue2.jpg)
 
 <a name = "FIFO"></a>
 # FIFO
@@ -177,10 +178,11 @@ Time: O(n) and O(1)
 Space: O(1)
 
 ## Solution
-![alt text](/code401challenges/assets/FIFO1.jpg)
-![alt text](/code401challenges/assets/FIFO2.jpg)
-![alt text](/code401challenges/assets/FIFO3.jpg)
-![alt text](/code401challenges/assets/FIFO4.jpg)
+![Whiteboard: FIFO](/code401challenges/assets/PseudoQueue2.jpg)
+![Whiteboard: FIFO](/code401challenges/assets/FIFO1.jpg)
+![Whiteboard: FIFO](/code401challenges/assets/FIFO2.jpg)
+![Whiteboard: FIFO](/code401challenges/assets/FIFO3.jpg)
+![Whiteboard: FIFO](/code401challenges/assets/FIFO4.jpg)
 
 <a name = "bracketvalidation"></a>
 # MultiBracketValidation
@@ -193,7 +195,6 @@ Your function should take a string as its only argument, and should return a boo
 * Square Brackets : []
 * Curly Brackets : {}
 
-
 ## Approach & Efficiency
 Building on the stack methods built in previous code challenges I will be iterating through the String, and using regex methods, push all opening brackets into one stack. This will continue until the first closing backet which will be pushed into a second stack. Then the two stack tops will be compared and if they match they will be popped off and the iteration will continue. If they do not match the method will return false and end. If the iteration ends and the stacks are null it will return true.
 
@@ -201,9 +202,9 @@ Time: O(n)
 Space: O(1)
 
 ## Solution
-![alt text](/code401challenges/assets/MultiBracketValidation1.jpg)
-![alt text](/code401challenges/assets/MultiBracketValidation2.jpg)
-![alt text](/code401challenges/assets/MultiBracketValidation3.jpg)
+![Whiteboard: MultiBracket Validation](/code401challenges/assets/MultiBracketValidation1.jpg)
+![Whiteboard: MultiBracket Validation](/code401challenges/assets/MultiBracketValidation2.jpg)
+![Whiteboard: MultiBracket Validation](/code401challenges/assets/MultiBracketValidation3.jpg)
 
 
 <a name = "trees"></a>
@@ -213,13 +214,13 @@ Space: O(1)
 Implementing a Tree.
 
 ## Approach & Efficiency
-To be added
+<!-- To be added -->
 
 Time: 
 Space: 
 
 ## Solution
-![alt text](/code401challenges/assets/tobeadded.jpg)
+<!-- ![alt text](/code401challenges/assets/tobeadded.jpg) -->
 
 <a name = "breadth"></a>
 # Breadth-first Tree Traversal
@@ -234,7 +235,7 @@ Time: O(n)
 Space: O(1)
 
 ## Solution
-![alt text](/code401challenges/assets/Breadth-first.jpg)
+![Whiteboard: Breadth-first Tree Traversal](/code401challenges/assets/Breadth-first.jpg)
 
 <a name = "maxValue"></a>
 # Max Value in a Binary Tree
@@ -249,7 +250,7 @@ Time: O(n)
 Space: O(1)
 
 ## Solution
-![alt text](/code401challenges/assets/findMaxValue.jpg)
+![Whiteboard: Finding the Max Value in a Binary Tree](/code401challenges/assets/findMaxValue.jpg)
 
 <a name = "insertionSort"></a>
 # Insertion Sort Algorithm
@@ -280,4 +281,54 @@ Time: O(TBD)
 Space: O(TBD)
 
 ## Solution
-![alt text](/code401challenges/assets/TBD.jpg)
+
+<a name = "mergeSort"></a>
+# Merge Sort Algorithm
+
+## Challenge
+* Complete a working, tested implementation of Merge Sort, based on the pseudo code provided below:
+````$xslt
+ ALGORITHM Mergesort(arr)
+    DECLARE n <-- arr.length
+           
+    if n > 1
+      DECLARE mid <-- n/2
+      DECLARE left <-- arr[0...mid]
+      DECLARE right <-- arr[mid...n]
+      // sort the left side
+      Mergesort(left)
+      // sort the right side
+      Mergesort(right)
+      // merge the sorted left and right sides together
+      Merge(left, right, arr)
+
+ALGORITHM Merge(left, right, arr)
+    DECLARE i <-- 0
+    DECLARE j <-- 0
+    DECLARE k <-- 0
+
+    while i < left.length && j < right.length
+        if left[i] <= right[j]
+            arr[k] <-- left[i]
+            i <-- i + 1
+        else
+            arr[k] <-- right[j]
+            j <-- j + 1
+            
+        k <-- k + 1
+
+    if i = left.length
+       set remaining entries in arr to remaining values in right
+    else
+       set remaining entries in arr to remaining values in left
+````
+* Write unit tests
+* Create a blog post on understanding the Merge Sort Algorithm suitable for a 301 level student. Alternately, prepare a presentation that presents the algorithm in a novel way.
+
+## Approach & Efficiency
+TBD
+
+Time: O(nlog(n))
+Space: O(n)
+
+## Solution
