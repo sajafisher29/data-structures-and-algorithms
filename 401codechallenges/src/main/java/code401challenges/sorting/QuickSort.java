@@ -21,12 +21,12 @@ public class QuickSort {
 
     public static int partition(int[] array, int low, int high) {
         // Set a pivot value as the point of reference
-        int randomIndex = new Random().nextInt(array.length);
-        int pivot = array[randomIndex];
+//        int randomIndex = new Random().nextInt(high); // We would need a random number between low and high
+        int pivot = array[high]; // This is refactored to use high instead of a random number for now
         // Define a variable to track the largest index of numbers lower than the pivot point
         int i = low - 1;
 
-        for (int j = low; j <= high - 1; j++) {
+        for (int j = low; j <= high; j++) {
             // If the current element is smaller than the pivot point
             if (array[j] < pivot) {
                 // Increment the index of the smaller element
@@ -40,7 +40,7 @@ public class QuickSort {
 
         // Swap array[i + 1] and array[high]
         int temp = array[i + 1];
-        array[i + 1] = array[high];
+        array[i + 1] = array[high]; // Having this set as = array[high] would require refactoring the code so that it is already at the high point
         array[high] = temp;
 
         return i + 1;
