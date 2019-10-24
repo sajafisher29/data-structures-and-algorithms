@@ -11,14 +11,14 @@ public class QuickSortTest {
     @Before
     public void setUp() {
         int[] arrayTest = {891, 0, 45, -3, 17, 4, 4, 1};
-        quickSort(arrayTest, 0, arrayTest.length);
+        quickSort(arrayTest, 0, arrayTest.length - 1);
     }
 
     // Test for an empty array
     @Test
     public void testQuickSortEmptyArray() {
         int[] array = new int[0];
-        int[] sortedArray = quickSort(array, 0, array.length);
+        int[] sortedArray = quickSort(array, 0, array.length - 1);
 
         assertArrayEquals(array, sortedArray);
     }
@@ -27,7 +27,7 @@ public class QuickSortTest {
     @Test
     public void testQuickSortArrayOneIndex() {
         int[] array = new int[]{-3};
-        int[] sortedArray = quickSort(array, 0, array.length);
+        int[] sortedArray = quickSort(array, 0, array.length-1);
 
         assertArrayEquals(array, sortedArray);
     }
@@ -36,7 +36,7 @@ public class QuickSortTest {
     @Test
     public void testQuickSortArrayTwoIndexesPreSorted() {
         int[] array = new int[]{0,28};
-        int[] sortedArray = quickSort(array, 0, array.length);
+        int[] sortedArray = quickSort(array, 0, array.length-1);
 
         assertArrayEquals(array, sortedArray);
     }
@@ -45,7 +45,7 @@ public class QuickSortTest {
     @Test
     public void testQuickSortArrayTwoIndexesNotPreSorted() {
         int[] array = {78,-13};
-        int[] sortedArray = quickSort(array, 0, array.length);
+        int[] sortedArray = quickSort(array, 0, array.length -1);
         int[] expected = {-13,78};
 
         assertArrayEquals(expected, sortedArray);
@@ -55,7 +55,7 @@ public class QuickSortTest {
     @Test
     public void testQuickSortArrayMultipleIndexesPreSorted() {
         int[] array = new int[]{1,3,5,6,7,8,9};
-        int[] sortedArray = quickSort(array, 0, array.length);
+        int[] sortedArray = quickSort(array, 0, array.length -1);
 
         assertArrayEquals(array, sortedArray);
     }
@@ -64,7 +64,7 @@ public class QuickSortTest {
     @Test
     public void testQuickSortArrayMultipleIndexesNotPreSorted() {
         int[] array = new int[]{9,2,-10,3,18};
-        int[] sortedArray = quickSort(array, 0, array.length);
+        int[] sortedArray = quickSort(array, 0, array.length - 1);
         int[] expected = new int[]{-10,2,3,9,18};
 
         assertArrayEquals(expected, sortedArray);
