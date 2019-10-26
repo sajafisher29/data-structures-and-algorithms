@@ -28,6 +28,7 @@ After lecture, get together with your partner and read through the daily set of 
 13. [Insertion Sort](#insertionSort)
 14. [Merge Sort](#mergeSort)
 15. [Quick Sort](#quickSort)
+16. [Hash Tables](#hashtable)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -383,3 +384,32 @@ Time: O(nlog(n)), worst case scenario is O(n<sup>2</sup>)
 Space: O(n)
 
 ## Solution
+
+<a name = "hashtable"></a>
+# Hashtables
+
+## Features
+Implement a Hashtable with the following methods:
+* add: takes in both the key and value. This method should hash the key, and add the key and value pair to the table, handling collisions as needed.
+* get: takes in the key and returns the value from the table.
+* contains: takes in the key and returns a boolean, indicating if the key exists in the table already.
+* hash: takes in an arbitrary key and returns an index in the collection.
+
+## Structure and Testing
+* Utilize the Single-responsibility principle: any methods writen should be clean, reusable, abstract component parts to the whole challenge.
+* Write tests to prove the following functionality:
+    1. Adding a key/value to your hashtable results in the value being in the data structure
+    2. Retrieving based on a key returns the value stored
+    3. Successfully returns null for a key that does not exist in the hashtable
+    4. Successfully handle a collision within the hashtable
+    5. Successfully retrieve a value from a bucket within the hashtable that has a collision
+    6. Successfully hash a key to an in-range value
+    7. Ensure your tests are passing before you submit your solution.  
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+Space: 
+Time:  
+
+## API
+<!-- Description of each method publicly available in each of your hashtable -->
