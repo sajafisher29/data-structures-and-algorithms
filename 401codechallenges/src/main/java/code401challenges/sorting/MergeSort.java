@@ -41,18 +41,17 @@ public class MergeSort {
             k = k + 1;
         }
 
-        while (j < right.length) {
-            // Set remaining indexes in array to remaining values in right
-            k--;
-            array[k] = left[j];
-            j++;
-            k++;
-        }
         while (i < left.length) {
             // Set remaining indexes in array to remaining values in left
-            k--;
-            array[k] = right[i];
+            array[k] = left[i];
             i++;
+            k++;
+        }
+
+        while (j < right.length) {
+            // Set remaining indexes in array to remaining values in right
+            array[k] = right[j];
+            j++;
             k++;
         }
     }
