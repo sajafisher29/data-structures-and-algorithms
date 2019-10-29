@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class Hashtable {
 
     // Array of buckets with LinkedLists at each index
-    private LinkedList[] bucketArray = new LinkedList[50];
+    protected LinkedList[] bucketArray = new LinkedList[50];
 
     // Current capacity of arrayList
     private int bucketArrayNumberOfBuckets;
@@ -37,9 +37,16 @@ public class Hashtable {
     }
 
     private int hashCode(String key) {
-        key.charAt(i)
-    }
+        String keyAsString = key.toString();
+        int keySumOfASCIIValues = 0;
 
+        for (int i = 0; i < keyAsString.length(); i++) {
+            keySumOfASCIIValues += (int) keyAsString.charAt(i);
+        }
+
+        int hashCode = (keySumOfASCIIValues * 599);
+        return hashCode;
+    }
 
     // **************** Add Method ***************
 
