@@ -3,26 +3,25 @@ package code401challenges.hashtable;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class Hashtable {
+public class Hashtable<Key, Value> {
 
     // Array of buckets with LinkedLists at each index
-    protected LinkedList[] bucketArray = new LinkedList[50];
+    private LinkedList<HashNode<Key, Value>>[] bucketArray;
 
-    // Current capacity of arrayList
-    private int bucketArrayNumberOfBuckets;
+    // Current capacity of array
+    public int bucketArrayNumberOfBuckets = 50;
 
-    // Current size of arrayList
-    private int bucketArraySize;
+    // Current size of LinkedList
+    private static final int bucketListSize = 0;
 
-    // Constructor initializes capacity, size, and empty LinkedLists
+    // Constructor for hashtable array of defined length with linkedlists
     public Hashtable() {
-        bucketArrayNumberOfBuckets = 50;
-        bucketArraySize = 0;
+        this.bucketArray = new LinkedList[bucketArrayNumberOfBuckets];
     }
 
     // **************** Get Size ***************
 
-    public int getSize() {return bucketArraySize;}
+    public int getSize() {return bucketListSize;}
 
     // **************** Check if Empty ***************
 
@@ -31,27 +30,24 @@ public class Hashtable {
     // **************** Hash Method ***************
 
     // This implements the hash function to calculate the index for the key
-    public int hash(String key) {
-        int index = Math.abs((key.hashCode()) % bucketArrayNumberOfBuckets);
-        return index;
-    }
+    protected int hash(Key key) {
 
-    private int hashCode(String key) {
         String keyAsString = key.toString();
         int keySumOfASCIIValues = 0;
 
         for (int i = 0; i < keyAsString.length(); i++) {
-            keySumOfASCIIValues += (int) keyAsString.charAt(i);
+            keySumOfASCIIValues += keyAsString.charAt(i);
         }
 
-        int hashCode = (keySumOfASCIIValues * 599);
-        return hashCode;
+        int index = ((keySumOfASCIIValues * 599) % bucketArrayNumberOfBuckets);
+
+        return index;
     }
 
     // **************** Add Method ***************
 
     // Adds a key value pair to hashtable
-    public boolean add(String key, String value) {
+    public boolean add(Key key, Value value) {
 
         if (contains(key)) {
             throw new IllegalArgumentException("Must be unique key. This key already exists in the array.");
@@ -91,42 +87,42 @@ public class Hashtable {
     // **************** Get Method ***************
 
     // Returns value for a key
-    public String get(String key) {
+    public Value get(Key key) {
 
         int index = hash(key);
+        if (bucketArray[hashCode()] == null) {
+            return null;
+        }
 
-        LinkedList<HashNode> indexsLinkedList = this.bucketArray[index];
-
-        String result = "Not found";
+        LinkedList<HashNode<Key, Value>> indexsLinkedList = this.bucketArray[index];
 
         for(HashNode storedData : indexsLinkedList){
             if(key.equals(storedData.getKey())){
-                result = storedData.getValue();
+                return (Value)storedData.getValue();
             }
         }
-        return result;
+        return null;
     }
 
     // **************** Contains Method ***************
 
     // Assess whether the specified key is stored in the table.
 
-    public boolean contains(String key){
+    public boolean contains(Key key){
         int index = hash(key);
-        LinkedList<HashNode> indexsLinkedList = this.bucketArray[index];
 
-        boolean result = false;
-
-        if(indexsLinkedList != null){
-            for(HashNode storedThing : indexsLinkedList){
-                if(key.equals(storedThing.getKey())){
-                    result = true;
-                }
-            }
+        if (bucketArray[hashCode()] == null) {
+            return false;
         }
 
-        // Key does not exist at this point
-        return result;
+        LinkedList<HashNode<Key, Value>> indexsLinkedList = this.bucketArray[index];
+
+        for(HashNode storedThing : indexsLinkedList){
+            if(key.equals(storedThing.getKey())){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

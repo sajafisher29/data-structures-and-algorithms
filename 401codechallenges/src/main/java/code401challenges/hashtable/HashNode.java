@@ -1,31 +1,33 @@
 package code401challenges.hashtable;
 
-public class HashNode {
+import org.checkerframework.checker.units.qual.K;
 
-    private String key;
-    private String value;
+public class HashNode<Key, Value> {
+
+    private Key key;
+    private Value value;
 
     //Constructor
-    public HashNode(String key, String value) {
+    public HashNode(Key key, Value value) {
         this.key = key;
         this.value = value;
     }
 
     public HashNode() {};
 
-    public String getKey() {
+    public Key getKey() {
         return key;
     }
 
-    public void setKey(String key) {
+    public void setKey(Key key) {
         this.key = key;
     }
 
-    public String getValue() {
+    public Value getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    public void setValue(Value value) {
         this.value = value;
     }
 
@@ -33,4 +35,5 @@ public class HashNode {
     public String toString() {
         return "HashNode{ key = " + key + ", value = " + value + "}";
     }
+
 }

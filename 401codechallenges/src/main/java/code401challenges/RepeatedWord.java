@@ -1,6 +1,6 @@
 package code401challenges;
 
-import java.util.Hashtable;
+import code401challenges.hashtable.Hashtable;
 import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
@@ -16,7 +16,7 @@ public class RepeatedWord {
     public static String repeatedWord(String bookText) {
 
         // Use the hashtable to store the seen words
-        Hashtable<String, Integer> seenWordHashTable = new Hashtable<>();
+        Hashtable seenWordHashTable = new Hashtable();
 
         // String builder to build each word letter by letter
         StringBuilder word = new StringBuilder();
@@ -37,7 +37,7 @@ public class RepeatedWord {
                 word.append(currentCharacter);
             } else {
                 // Check for apostrophes between words like I'm
-                if (currentCharacter.equals("'") && word.length() > 0) {
+                if ((currentCharacter.equals("'") || (currentCharacter.equals("'")) && word.length() > 0)) { // Thank you to Quang for thinking of hyphens!
                     word.append(currentCharacter);
                 } else if (seenWordHashTable.contains(word.toString())) {
                     return word.toString();
