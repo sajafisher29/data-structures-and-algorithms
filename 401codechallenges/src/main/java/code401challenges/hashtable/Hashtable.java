@@ -3,59 +3,58 @@ package code401challenges.hashtable;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class Hashtable {
+public class Hashtable<Key, Value> {
 
     // Array of buckets with LinkedLists at each index
-    private LinkedList[] bucketArray = new LinkedList[50];
+    protected LinkedList<HashNode<Key, Value>>[] hashtable;
 
-    // Current capacity of arrayList
-    private int bucketArrayNumberOfBuckets;
+    // Current capacity of array
+    public int hashtableNumberOfBuckets = 5;
 
-    // Current size of arrayList
-    private int bucketArraySize;
+    // Current size of LinkedList
+    private static final int bucketListSize = 0;
 
-    // Constructor initializes capacity, size, and empty LinkedLists
+    // Constructor for hashtable array of defined length with linkedlists
     public Hashtable() {
-        bucketArrayNumberOfBuckets = 50;
-        bucketArraySize = 0;
+        this.hashtable = new LinkedList[hashtableNumberOfBuckets];
     }
-
-    // **************** Get Size ***************
-
-    public int getSize() {return bucketArraySize;}
-
-    // **************** Check if Empty ***************
-
-    public boolean isEmpty() { return getSize() == 0; }
 
     // **************** Hash Method ***************
 
     // This implements the hash function to calculate the index for the key
-    public int hash(String key) {
-        int index = Math.abs((key.hashCode()) % bucketArrayNumberOfBuckets);
+    protected int hash(Key key) {
+
+        String keyAsString = key.toString();
+        int keySumOfASCIIValues = 0;
+
+        for (int i = 0; i < keyAsString.length(); i++) {
+            keySumOfASCIIValues += keyAsString.charAt(i);
+        }
+
+        int hashtableLength = hashtable.length;
+        int index = (keySumOfASCIIValues * 599) % hashtableLength;
+
         return index;
     }
-
-    private int hashCode(String key) {
-        key.charAt(i)
-    }
-
 
     // **************** Add Method ***************
 
     // Adds a key value pair to hashtable
-    public boolean add(String key, String value) {
+    public boolean add(Key key, Value value) {
 
         if (contains(key)) {
-            throw new IllegalArgumentException("Must be unique key. This key already exists in the array.");
+            return false;
         }
 
         HashNode dataToStore = new HashNode(key, value);
+
         int index = hash(key);
-        if (this.bucketArray[index] == null) {
-            this.bucketArray[index] = new LinkedList<>();
+
+        if (this.hashtable[index] == null) {
+            this.hashtable[index] = new LinkedList<>();
         }
-        this.bucketArray[index].add(dataToStore);
+
+        this.hashtable[index].add(dataToStore);
 
         return true;
     }
@@ -80,50 +79,54 @@ public class Hashtable {
 //        }
 //    }
 
-
     // **************** Get Method ***************
 
     // Returns value for a key
-    public String get(String key) {
+    public Value get(Key key) {
 
         int index = hash(key);
 
-        LinkedList<HashNode> indexsLinkedList = this.bucketArray[index];
+        if (hashtable[index] == null) {
+            return null;
+        }
 
-        String result = "Not found";
+        LinkedList<HashNode<Key, Value>> indexsLinkedList = hashtable[index];
 
-        for(HashNode storedData : indexsLinkedList){
-            if(key.equals(storedData.getKey())){
-                result = storedData.getValue();
+        for (HashNode storedData : indexsLinkedList){
+
+            if (key.equals(storedData.getKey())){
+                return (Value)storedData.getValue();
             }
         }
-        return result;
+
+        return null;
     }
 
     // **************** Contains Method ***************
 
     // Assess whether the specified key is stored in the table.
 
-    public boolean contains(String key){
+    public boolean contains(Key key){
         int index = hash(key);
-        LinkedList<HashNode> indexsLinkedList = this.bucketArray[index];
 
-        boolean result = false;
+        if (hashtable[index] == null) {
+            return false;
+        }
 
-        if(indexsLinkedList != null){
-            for(HashNode storedThing : indexsLinkedList){
-                if(key.equals(storedThing.getKey())){
-                    result = true;
-                }
+        LinkedList<HashNode<Key, Value>> indexsLinkedList = hashtable[index];
+
+        for (HashNode storedThing : indexsLinkedList){
+
+            if (key.equals(storedThing.getKey())){
+                return true;
             }
         }
 
-        // Key does not exist at this point
-        return result;
+        return false;
     }
 
     @Override
     public String toString() {
-        return "Hashtable{ LinkedList = " + Arrays.toString(bucketArray) + "}";
+        return "Hashtable{ LinkedList = " + Arrays.toString(hashtable) + "}";
     }
 }

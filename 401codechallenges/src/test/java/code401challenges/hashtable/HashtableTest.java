@@ -2,7 +2,6 @@ package code401challenges.hashtable;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class HashtableTest {
@@ -19,16 +18,16 @@ public class HashtableTest {
 
         @Test
         public void hash() {
-            assertEquals("The key Habitat should be ___",
-                    testHashTable.hash("Habitat"),
-                    __);
+            //ASCII value for "Key" is 297
+            int hashIndex = testHashTable.hash("Key");
+            int expectedHashIndex = (297*599) % 5;
+            assertEquals(expectedHashIndex, hashIndex);
+            assertTrue(hashIndex < 6 && hashIndex >= 0);
         }
 
         @Test
         public void add() {
-            assertEquals("This is the happy test to add.",
-                    testHashTable.toString(),
-                    "Hashtable{_______}");
+            assertTrue(testHashTable.add("8thKey", "value8"));
         }
 
         @Test
@@ -43,9 +42,9 @@ public class HashtableTest {
             assertTrue(testHashTable.contains("2ndKey"));
         }
 
-        @Test(expected = IllegalArgumentException.class)
+        @Test
         public void addDup(){
-            testHashTable.add("2ndKey","value2");
+            assertFalse( testHashTable.add("2ndKey","value2"));
         }
 
 }
