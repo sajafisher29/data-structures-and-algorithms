@@ -85,6 +85,9 @@ public class Hashtable<Key, Value> {
     public Value get(Key key) {
 
         int index = hash(key);
+        if (bucketArray[hashCode()] == null) {
+            return null;
+        }
 
         if (hashtable[index] == null) {
             return null;

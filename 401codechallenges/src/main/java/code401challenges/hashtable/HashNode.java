@@ -1,4 +1,5 @@
 package code401challenges.hashtable;
+
 import org.checkerframework.checker.units.qual.K;
 
 public class HashNode<Key, Value> {

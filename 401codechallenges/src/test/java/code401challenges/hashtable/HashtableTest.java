@@ -9,7 +9,7 @@ public class HashtableTest {
         Hashtable testHashTable;
         @Before
         public void setUp() throws Exception {
-            testHashTable = new Hashtable();
+            testHashTable = new Hashtable<>();
             testHashTable.add("1stKey", "value1");
             testHashTable.add("2ndKey", "value2");
             testHashTable.add("3rdKey", "value3");
