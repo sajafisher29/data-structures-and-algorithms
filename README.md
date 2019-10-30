@@ -29,6 +29,7 @@ After lecture, get together with your partner and read through the daily set of 
 14. [Merge Sort](#mergeSort)
 15. [Quick Sort](#quickSort)
 16. [Hash Tables](#hashtable)
+17. [Common Values in Binary Trees](#commonvaluesintrees)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -405,6 +406,27 @@ Implement a Hashtable with the following methods:
     5. Successfully retrieve a value from a bucket within the hashtable that has a collision
     6. Successfully hash a key to an in-range value
     7. Ensure your tests are passing before you submit your solution.  
+
+## Approach & Efficiency
+<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+Space: 
+Time:  
+
+## API
+<!-- Description of each method publicly available in each of your hashtable -->
+
+<a name = "commonvaluesintrees"></a>
+# Finding Common Values in Binary Trees
+
+## Features
+* Write a function called tree_intersection that takes two binary tree parameters.
+* Without utilizing any of the built-in library methods available, return a set of values found in both trees.
+* Stretch goal: When working with BSTs, how can you improve the performance of your algorithm?
+
+## Structure and Testing
+* Utilize the Single-responsibility principle: any methods writen should be clean, reusable, abstract component parts to the whole challenge.
+* Write at least three test assertions for each method that you define.
+* Ensure your tests are passing before you submit your solution.
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
