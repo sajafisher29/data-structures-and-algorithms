@@ -6,26 +6,18 @@ import java.util.LinkedList;
 public class Hashtable<Key, Value> {
 
     // Array of buckets with LinkedLists at each index
-    private LinkedList<HashNode<Key, Value>>[] bucketArray;
+    protected LinkedList<HashNode<Key, Value>>[] hashtable;
 
     // Current capacity of array
-    public int bucketArrayNumberOfBuckets = 50;
+    public int hashtableNumberOfBuckets = 5;
 
     // Current size of LinkedList
     private static final int bucketListSize = 0;
 
     // Constructor for hashtable array of defined length with linkedlists
     public Hashtable() {
-        this.bucketArray = new LinkedList[bucketArrayNumberOfBuckets];
+        this.hashtable = new LinkedList[hashtableNumberOfBuckets];
     }
-
-    // **************** Get Size ***************
-
-    public int getSize() {return bucketListSize;}
-
-    // **************** Check if Empty ***************
-
-    public boolean isEmpty() { return getSize() == 0; }
 
     // **************** Hash Method ***************
 
@@ -39,7 +31,8 @@ public class Hashtable<Key, Value> {
             keySumOfASCIIValues += keyAsString.charAt(i);
         }
 
-        int index = ((keySumOfASCIIValues * 599) % bucketArrayNumberOfBuckets);
+        int hashtableLength = hashtable.length;
+        int index = (keySumOfASCIIValues * 599) % hashtableLength;
 
         return index;
     }
@@ -50,15 +43,18 @@ public class Hashtable<Key, Value> {
     public boolean add(Key key, Value value) {
 
         if (contains(key)) {
-            throw new IllegalArgumentException("Must be unique key. This key already exists in the array.");
+            return false;
         }
 
         HashNode dataToStore = new HashNode(key, value);
+
         int index = hash(key);
-        if (this.bucketArray[index] == null) {
-            this.bucketArray[index] = new LinkedList<>();
+
+        if (this.hashtable[index] == null) {
+            this.hashtable[index] = new LinkedList<>();
         }
-        this.bucketArray[index].add(dataToStore);
+
+        this.hashtable[index].add(dataToStore);
 
         return true;
     }
@@ -83,7 +79,6 @@ public class Hashtable<Key, Value> {
 //        }
 //    }
 
-
     // **************** Get Method ***************
 
     // Returns value for a key
@@ -94,13 +89,19 @@ public class Hashtable<Key, Value> {
             return null;
         }
 
-        LinkedList<HashNode<Key, Value>> indexsLinkedList = this.bucketArray[index];
+        if (hashtable[index] == null) {
+            return null;
+        }
 
-        for(HashNode storedData : indexsLinkedList){
-            if(key.equals(storedData.getKey())){
+        LinkedList<HashNode<Key, Value>> indexsLinkedList = hashtable[index];
+
+        for (HashNode storedData : indexsLinkedList){
+
+            if (key.equals(storedData.getKey())){
                 return (Value)storedData.getValue();
             }
         }
+
         return null;
     }
 
@@ -111,22 +112,24 @@ public class Hashtable<Key, Value> {
     public boolean contains(Key key){
         int index = hash(key);
 
-        if (bucketArray[hashCode()] == null) {
+        if (hashtable[index] == null) {
             return false;
         }
 
-        LinkedList<HashNode<Key, Value>> indexsLinkedList = this.bucketArray[index];
+        LinkedList<HashNode<Key, Value>> indexsLinkedList = hashtable[index];
 
-        for(HashNode storedThing : indexsLinkedList){
-            if(key.equals(storedThing.getKey())){
+        for (HashNode storedThing : indexsLinkedList){
+
+            if (key.equals(storedThing.getKey())){
                 return true;
             }
         }
+
         return false;
     }
 
     @Override
     public String toString() {
-        return "Hashtable{ LinkedList = " + Arrays.toString(bucketArray) + "}";
+        return "Hashtable{ LinkedList = " + Arrays.toString(hashtable) + "}";
     }
 }
