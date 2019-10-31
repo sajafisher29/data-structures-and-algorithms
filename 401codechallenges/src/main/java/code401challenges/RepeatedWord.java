@@ -27,8 +27,8 @@ public class RepeatedWord {
         for (int i = 0; i < bookText.length(); i++) {
             String currentCharacter = bookText.substring(i, i + 1).toLowerCase();
 
-            // Check for space after a special character like period
-            if (currentCharacter.equals(" ") && word.length() == 0) {
+            // Check for space after a special character like period and for words that are first in a quote
+            if ((currentCharacter.equals(" ") || currentCharacter.equals("'")) && word.length() == 0) {
                 continue;
             }
 
@@ -37,7 +37,7 @@ public class RepeatedWord {
                 word.append(currentCharacter);
             } else {
                 // Check for apostrophes between words like I'm
-                if ((currentCharacter.equals("'") || (currentCharacter.equals("'")) && word.length() > 0)) { // Thank you to Quang for thinking of hyphens!
+                if ((currentCharacter.equals("'") || (currentCharacter.equals("-"))  && word.length() > 0)) { // Thank you to Quang for thinking of hyphens!
                     word.append(currentCharacter);
                 } else if (seenWordHashTable.contains(word.toString())) {
                     return word.toString();

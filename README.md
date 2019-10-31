@@ -29,7 +29,8 @@ After lecture, get together with your partner and read through the daily set of 
 14. [Merge Sort](#mergeSort)
 15. [Quick Sort](#quickSort)
 16. [Hash Tables](#hashtable)
-17. [Common Values in Binary Trees](#commonvaluesintrees)
+17. [Repeated Words in a String](#repeatedwords)
+18. [Common Values in Binary Trees](#commonvaluesintrees)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -415,6 +416,30 @@ Time:
 ## API
 <!-- Description of each method publicly available in each of your hashtable -->
 
+<a name = "repeatedwords"></a>
+# Finding Repeated Words in a String
+
+## Features
+* Write a function that accepts a lengthy string parameter.
+* Without utilizing any of the built-in library methods available, return the first word to occur more than once in that provided string.
+* Stretch goal: Modify your function to return a count of each of the words in the provided string
+* Stretch goal: Modify your function to return a list of the words most frequently used in the provided string
+
+## Structure and Testing
+* Utilize the Single-responsibility principle: any methods writen should be clean, reusable, abstract component parts to the whole challenge.
+* Write at least three test assertions for each method that you define.
+* Ensure your tests are passing before you submit your solution.
+
+## Approach & Efficiency
+I am utilizing the hashtable I created to hold words in the String. As I iterate through the String words will be added to the hashtable if they are not there already. If a word is found already in the hashtable it is returned as the first repeated word. If the iteration finishes the method will return null.
+
+Space: O(n) -> worst case scenario for when there are no repeated words
+Time: O(n) -> worst case scenario for when there are no repeated words
+
+## Solution
+![Whiteboard: Repeated Words in a String](/code401challenges/assets/repeatedWords1.jpg)
+![Whiteboard: Repeated Words in a String](/code401challenges/assets/repeatedWords2.jpg)
+
 <a name = "commonvaluesintrees"></a>
 # Finding Common Values in Binary Trees
 
@@ -433,5 +458,6 @@ Time:
 Space: 
 Time:  
 
-## API
-<!-- Description of each method publicly available in each of your hashtable -->
+## Solution
+![Whiteboard: Common Values in Trees](/code401challenges/assets/commonvalues1.jpg)
+![Whiteboard: Common Values in Trees](/code401challenges/assets/commonvalues2.jpg)
