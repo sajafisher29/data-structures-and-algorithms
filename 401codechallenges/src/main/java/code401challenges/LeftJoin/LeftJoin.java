@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class LeftJoin {
 
-    public static Hashtable mushLeftIntoRight (HashMap<String, String> map1, HashMap<String, String>  map2){
+    public static Hashtable leftJoin (HashMap<String, String> map1, HashMap<String, String>  map2){
         Hashtable mergedMapsData;
 
         for(HashMap.Entry<String, String> data: map1.entrySet()){
