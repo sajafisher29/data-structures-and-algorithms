@@ -31,6 +31,7 @@ After lecture, get together with your partner and read through the daily set of 
 16. [Hash Tables](#hashtable)
 17. [Repeated Words in a String](#repeatedwords)
 18. [Common Values in Binary Trees](#commonvaluesintrees)
+19. [Left Join](#leftjoin)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -461,3 +462,29 @@ Time:
 ## Solution
 ![Whiteboard: Common Values in Trees](/code401challenges/assets/commonvalues1.jpg)
 ![Whiteboard: Common Values in Trees](/code401challenges/assets/commonvalues2.jpg)
+
+<a name = "leftjoin"></a>
+# Left Join
+
+## Features
+* Write a function that LEFT JOINs two hashmaps into a single data structure.
+* First parameter is a hashmap that has word strings as keys, and a synonym of the key as values.
+* Second parameter is a hashmap that has word strings as keys, and antonyms of the key as values.
+* Combine the key and corresponding values (if they exist) into a new data structure according to LEFT JOIN logic.
+* LEFT JOIN means all the values in the first hashmap are returned, and if values exist in the “right” hashmap, they are appended to the result row. If no values exist in the right hashmap, then some flavor of NULL should be appended to the result row.
+* Returned data structure that holds the results can vary. Just need to achieve LEFT JOIN logic.
+* Avoid utilizing any of the library methods available to your language.
+* Stretch goal: Consider a RIGHT JOIN. Implement this as a new method. How about by passing an optional parameter to left join method, to specify if LEFT JOIN or RIGHT JOIN logic should be used?
+
+## Structure and Testing
+* Utilize the Single-responsibility principle: any methods writen should be clean, reusable, abstract component parts to the whole challenge.
+* Write at least three test assertions for each method that you define.
+* Ensure your tests are passing before you submit your solution.
+
+## Approach & Efficiency
+Utilize a hashtable to hold the combined data. Iterate through the first map and hash it into the hashtable. During each iteration check if the same key is in the second map. If it is append its value to the first map's value and complete insertion into the hashtable. If it is not, append "null" and complete insertion.
+Space: O(n)
+Time: O(n<sup>2</sup>)
+
+## Solution
+![Whiteboard: Left Join](/code401challenges/assets/leftjoin.jpg)
