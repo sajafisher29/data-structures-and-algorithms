@@ -32,6 +32,7 @@ After lecture, get together with your partner and read through the daily set of 
 17. [Repeated Words in a String](#repeatedwords)
 18. [Common Values in Binary Trees](#commonvaluesintrees)
 19. [Left Join](#leftjoin)
+20. [Graphs](#graphs)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -488,3 +489,49 @@ Time: O(n<sup>2</sup>)
 
 ## Solution
 ![Whiteboard: Left Join](/code401challenges/assets/leftjoin.jpg)
+
+<a name = "graphs"></a>
+# Graphs
+
+## Challenge
+Impliment a graph. The graph should be represented as an adjacency list, and should include the following methods:
+* AddNode()
+    * Adds a new node to the graph
+    * Takes in the value of that node
+    * Returns the added node
+* AddEdge()
+    * Adds a new edge between two nodes in the graph
+    * Include the ability to have a “weight”
+    * Takes in the two nodes to be connected by the edge
+        * Both nodes should already be in the Graph
+* GetNodes()
+    * Returns all of the nodes in the graph as a collection (set, list, or similar)
+* GetNeighbors()
+    * Returns a collection of nodes connected to the given node
+    * Takes in a given node
+    * Include the weight of the connection in the returned collection
+* Size()
+    * Returns the total number of nodes in the graph
+
+## Approach & Efficiency
+TBA
+
+## Structure and Testing
+* Utilize the Single-responsibility principle: any methods you write should be clean, reusable, abstract component parts to the whole challenge.
+* Write tests to prove the following functionality:
+    * Node can be successfully added to the graph
+    * An edge can be successfully added to the graph
+    * A collection of all nodes can be properly retrieved from the graph
+    * All appropriate neighbors can be retrieved from the graph
+    * Neighbors are returned with the weight between nodes included
+    * The proper size is returned, representing the number of nodes in the graph
+    * A graph with only one node and edge can be properly returned
+    * An empty graph properly returns null
+* Ensure tests are passing.
+
+## API
+* AddNode()
+* AddEdge()
+* GetNodes()
+* GetNeighbors()
+* Size()
