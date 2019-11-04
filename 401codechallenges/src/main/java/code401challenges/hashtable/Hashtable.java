@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class Hashtable<Key, Value> {
 
     // Array of buckets with LinkedLists at each index
-    protected LinkedList<HashNode<Key, Value>>[] hashtable;
+    public LinkedList<HashNode<Key, Value>>[] hashtable;
 
     // Current capacity of array
     public int hashtableNumberOfBuckets = 5;

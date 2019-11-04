@@ -2,10 +2,13 @@ package code401challenges.graph;
 
 public class GraphEdge<T> {
 
-    GraphNode<T> connectedNode;
+    public GraphNode<T> connectedNode;
     int weight;
 
-    public GraphEdge() {}
+    public GraphEdge(GraphNode<T> connectedNode) {
+        this.connectedNode = connectedNode;
+        this.weight = 0;
+    }
 
     public GraphEdge(GraphNode<T> connectedNode, int weight) {
         this.connectedNode = connectedNode;
