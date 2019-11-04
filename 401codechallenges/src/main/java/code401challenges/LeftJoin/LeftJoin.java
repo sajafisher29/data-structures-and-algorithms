@@ -2,7 +2,6 @@ package code401challenges.LeftJoin;
 
 import code401challenges.hashtable.HashNode;
 import code401challenges.hashtable.Hashtable;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 
