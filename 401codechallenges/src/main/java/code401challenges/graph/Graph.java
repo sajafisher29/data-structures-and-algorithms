@@ -1,16 +1,17 @@
 package code401challenges.graph;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class Graph<T> {
 
-    private HashMap<T, GraphNode<T>> adjacencyList;
+    private List<GraphNode<T>> adjacencyList = new ArrayList<>();
     public GraphNode rootNode;
+    public Set<GraphNode> setOfGraphNodes;
 
-    public Graph(HashMap<T, GraphNode<T>> adjacencyList, GraphNode rootNode) {
+    public Graph(List<GraphNode<T>> adjacencyList) {
         this.adjacencyList = adjacencyList;
-        this.rootNode = rootNode;
     }
 
     public void setRootNode(GraphNode rootNode) {
@@ -21,17 +22,13 @@ public class Graph<T> {
         return this.rootNode;
     }
 
-    public Graph() {
-        adjacencyList = new HashMap<>();
-    }
-
     // AddNode() ==================================================
         // Adds a new node to the graph
         // Takes in the value of that node
         // Returns the added node
 
     public GraphNode addNode(GraphNode newNode) {
-        adjacencyList.put((T) newNode, new GraphNode<T>(newNode));
+        adjacencyList.add(new GraphNode<T>(newNode));
         return newNode;
     }
 
@@ -42,14 +39,14 @@ public class Graph<T> {
         // Both nodes should already be in the Graph
 
     public void addEdge(GraphNode graphNode1, GraphNode graphNode2, int weight) {
-        if (!containsGraphNode(graphNode1) || !containsGraphNode(graphNode2)) {
-            throw new RuntimeException("Vertex does not exist");
+        if (setOfGraphNodes.containsGraphNode(graphNode1) && setOfGraphNodes.containsGraphNode(graphNode2)) {// Add the edge
+            GraphNode<T> node1 = getGraphNode(graphNode1);
+            GraphNode<T> node2 = getGraphNode(graphNode2);
+            return node1.addEdge(node2, weight);
+        } else {
+            throw new RuntimeException("GraphNode does not exist");
         }
 
-        // Add the edge
-        GraphNode<T> node1 = getGraphNode(graphNode1);
-        GraphNode<T> node2 = getGraphNode(graphNode2);
-        return node1.addEdge(node2, weight);
     }
 
     // GetNodes() ==================================================
@@ -59,17 +56,6 @@ public class Graph<T> {
         Set<GraphNode> setOfGraphNodes = null;
 
         return setOfGraphNodes;
-    }
-
-    // GetNeighbors() ==============================================
-        // Returns a collection of nodes connected to the given node
-        // Takes in a given node
-        // Include the weight of the connection in the returned collection
-
-    public Set<GraphNode> getNeighbors(GraphNode graphNode) {
-        Set<GraphNode> setOfNeighbors = null;
-
-        return setOfNeighbors;
     }
 
     // Size() ======================================================
@@ -114,5 +100,5 @@ public class Graph<T> {
             }
         }
     }
-    
+
 }
