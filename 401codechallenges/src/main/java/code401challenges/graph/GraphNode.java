@@ -5,8 +5,8 @@ import java.util.List;
 
 public class GraphNode<T> {
 
-    private T value;
-    private List<GraphEdge<T>> neighbors;
+    public T value;
+    public List<GraphEdge<T>> neighbors;
 
     public GraphNode(T value) {
         this.value = value;

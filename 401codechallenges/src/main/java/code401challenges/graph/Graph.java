@@ -64,11 +64,14 @@ public class Graph<T> {
         // Takes in a given node
         // Include the weight of the connection in the returned collection
 
-    public List<GraphEdge<T>> getNeighbors(GraphNode<T> graphNode) {
-        if (graphNode.getNeighbors().size() == 0) {
-            return null;
+    public Set<GraphNode<T>> getNeighbors(GraphNode<T> graphNode) {
+        Set<GraphNode<T>> SetOfNeighbors = new HashSet<GraphNode<T>>();
+        for (GraphEdge<T> knownNeighbor : graphNode.neighbors) {
+            if (!SetOfNeighbors.contains(knownNeighbor.connectedNode)) {
+                SetOfNeighbors.add(knownNeighbor.connectedNode);
+            }
         }
-        return graphNode.getNeighbors();
+        return SetOfNeighbors;
 
     }
 

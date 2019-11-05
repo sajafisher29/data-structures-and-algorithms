@@ -558,4 +558,5 @@ Time:O(n)
 * Ensure tests are passing.
 
 ## API
-* 
+* breadthFirstTraversal()  
+![Whiteboard: Breadth First Graph Traversal](/code401challenges/assets/BreadthFirstGraph.jpg)
