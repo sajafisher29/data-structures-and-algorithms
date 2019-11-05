@@ -33,6 +33,7 @@ After lecture, get together with your partner and read through the daily set of 
 18. [Common Values in Binary Trees](#commonvaluesintrees)
 19. [Left Join](#leftjoin)
 20. [Graphs](#graphs)
+21. [Breadth-first Traversal on Graph](#breadthfirstgraph)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -535,3 +536,26 @@ TBA
 * GetNodes()
 * GetNeighbors()
 * Size()
+
+[Breadth-first Traversal on Graph](#breadthfirstgraph)
+<a name = "graphs"></a>
+# Breadth-First Traversal on a Graph
+
+## Challenge
+Implement a breath-first traversal on a graph.
+* Extend graph object with a breadth-first traversal method that accepts a starting node. Without utilizing any of the built-in methods available, return a collection of nodes in the order they were visited. Display the collection.
+* Stretch goal: Define a new method that accepts two nodes as input and uses your traversal algorithm to determine if a path exists between the two nodes.
+
+## Approach & Efficiency
+I will use the same fundamentals of a breadth-first traversal of a tree with the additions of a Set to track whether or not a Node has been counted. Using the Set will ensure there will be no infinite loops caused by cycles in the graph.
+
+Space: O(n)
+Time:O(n)
+
+## Structure and Testing
+* Utilize the Single-responsibility principle: any methods you write should be clean, reusable, abstract component parts to the whole challenge.
+* Write at least three test assertions for each method defined.
+* Ensure tests are passing.
+
+## API
+* 
