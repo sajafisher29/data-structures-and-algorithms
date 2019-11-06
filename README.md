@@ -34,6 +34,7 @@ After lecture, get together with your partner and read through the daily set of 
 19. [Left Join](#leftjoin)
 20. [Graphs](#graphs)
 21. [Breadth-first Traversal on Graph](#breadthfirstgraph)
+22. [Get Edge - Direct Flights](#getedge)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -535,10 +536,9 @@ TBA
 * AddEdge()
 * GetNodes()
 * GetNeighbors()
-* Size()
+* Size()  
 
-[Breadth-first Traversal on Graph](#breadthfirstgraph)
-<a name = "graphs"></a>
+<a name = "breadthfirstgraph"></a>
 # Breadth-First Traversal on a Graph
 
 ## Challenge
@@ -560,3 +560,25 @@ Time:O(n)
 ## API
 * breadthFirstTraversal()  
 ![Whiteboard: Breadth First Graph Traversal](/code401challenges/assets/BreadthFirstGraph.jpg)
+
+<a name = "getedge"></a>
+# Get Edge - Direct Flights
+
+## Challenge
+Given a business trip itinerary, and an Alaska Airlines route map, is the trip possible with direct flights? If so, how much will the total trip cost be? If a direct flight is not possible, return -1.
+* Write a function based on the specifications above, which takes in a graph, and an array of city names. Without utilizing any of the built-in methods available, return whether the full trip is possible with direct flights, and how much it would cost.
+
+## Approach & Efficiency
+Use the names in the array to find the departing and arriving Nodes. Assess the departing node's list of edges to see if any of them point at the arriving node. If so, return the weight of that edge. If not, return -1.
+
+Space: O(1)
+Time:O(n)
+
+## Structure and Testing
+* Utilize the Single-responsibility principle: any methods writen should be clean, reusable, abstract component parts to the whole challenge.
+* Write at least three test assertions for each method defined.
+* Ensure tests are passing.
+
+## API
+* getEdge()  
+![Whiteboard: Get Edge](/code401challenges/assets/getEdge.jpg)
