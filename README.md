@@ -33,8 +33,9 @@ After lecture, get together with your partner and read through the daily set of 
 18. [Common Values in Binary Trees](#commonvaluesintrees)
 19. [Left Join](#leftjoin)
 20. [Graphs](#graphs)
-21. [Breadth-first Traversal on Graph](#breadthfirstgraph)
+21. [Breadth-first Traversal on a Graph](#breadthfirstgraph)
 22. [Get Edge - Direct Flights](#getedge)
+23. [Depth-first Traversal on a Graph](#depthfirstgraph)
 
 <a name = "reverseArray"></a>
 # Reverse an Array
@@ -572,7 +573,7 @@ Given a business trip itinerary, and an Alaska Airlines route map, is the trip p
 Use the names in the array to find the departing and arriving Nodes. Assess the departing node's list of edges to see if any of them point at the arriving node. If so, return the weight of that edge. If not, return -1.
 
 Space: O(1)
-Time:O(n)
+Time: O(n)
 
 ## Structure and Testing
 * Utilize the Single-responsibility principle: any methods writen should be clean, reusable, abstract component parts to the whole challenge.
@@ -582,3 +583,25 @@ Time:O(n)
 ## API
 * getEdge()  
 ![Whiteboard: Get Edge](/code401challenges/assets/getEdge.jpg)
+
+<a name = "depthfirstgraph"></a>
+# Depth-first Traversal of a Graph
+
+## Challenge
+Conduct a depth first preorder traversal on a graph
+* Create a function that accepts an adjacency list as a graph, and conducts a depth first traversal. Without utilizing any of the built-in methods available, return a collection of nodes in their pre-order depth-first traversal order.
+
+## Approach & Efficiency
+
+
+Space:
+Time:
+
+## Structure and Testing
+* Utilize the Single-responsibility principle: any methods writen should be clean, reusable, abstract component parts to the whole challenge.
+* Write at least three test assertions for each method defined.
+* Ensure tests are passing.
+
+## API
+* depthFirstGraph()  
+![Whiteboard: Depth-first Traversal of a Graph](/code401challenges/assets/depthfirstgraph.jpg)
